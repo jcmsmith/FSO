@@ -8,24 +8,11 @@ const Button = ({ handleClick, text }) => {
   )
 }
 
-const Header = ({ text }) => <h1>{text}</h1>
-
-const DisplayStatistic = ({ text, stat }) => {
-  return <p>{text} {stat}</p>
-}
-
-const App = () => {
-  const [good, setGood] = useState(0)
-  const [neutral, setNeutral] = useState(0)
-  const [bad, setBad] = useState(0)
-
-  const goodRating = () => setGood(good + 1)
-  const neutralRating = () => setNeutral(neutral + 1)
-  const badRating = () => setBad(bad + 1)
-  let totalRatings = good + bad + neutral
+const StatisticsDisplay = ({ stats }) => {
+  if (stats.total === 0) {return "No feedback given"}
 
   const averageRating = () => {
-    const score = (good + bad * -1) / totalRatings
+    const score = (stats.good + stats.bad * -1) / stats.total
 
     if (!isFinite(score))
     {
@@ -36,33 +23,62 @@ const App = () => {
   }
 
   const positivePercentage = () => {
-    if (bad === 0 && neutral === 0)
+    if (stats.bad === 0 && stats.neutral === 0)
     {
       return '100%'
     }
 
-    const avg = good / totalRatings
+    const avg = stats.good / stats.total
 
     return avg + ' %'
   }
-  
-
 
   return (
     <div>
+      <StatisticLine text = 'good' stat = {stats.good} />
+      <StatisticLine text = 'neutral' stat = {stats.neutral} />
+      <StatisticLine text = 'bad' stat = {stats.bad} />
+      <StatisticLine text = 'all' stat = {stats.total} />
+      <StatisticLine text = 'average' stat = {averageRating()} />
+      <StatisticLine text = 'positive' stat = {positivePercentage()} />
+    </div>
+  )
+}
+
+const Header = ({ text }) => <h1>{text}</h1>
+
+const StatisticLine = ({ text, stat }) => {
+  return <p>{text} {stat}</p>
+}
+
+const App = () => {
+  const [good, setGood] = useState(0)
+  const [neutral, setNeutral] = useState(0)
+  const [bad, setBad] = useState(0)
+
+  const rateGood = () => setGood(good + 1)
+  const rateNeutral = () => setNeutral(neutral + 1)
+  const rateBad = () => setBad(bad + 1)
+
+
+  const stats = {
+    good: good,
+    neutral: neutral,
+    bad: bad,
+    total: good + bad + neutral
+  }
+
+
+  return (
+    <>
       <Header text = 'give feedback' />
-      <Button handleClick={goodRating} text = 'good' />
-      <Button handleClick={neutralRating} text = 'neutral' />
-      <Button handleClick={badRating} text = 'bad' />
+      <Button handleClick={rateGood} text = 'good' />
+      <Button handleClick={rateNeutral} text = 'neutral' />
+      <Button handleClick={rateBad} text = 'bad' />
 
       <Header text = 'statistics' />
-      <DisplayStatistic text = 'good' stat = {good} />
-      <DisplayStatistic text = 'neutral' stat = {neutral} />
-      <DisplayStatistic text = 'bad' stat = {bad} />
-      <DisplayStatistic text = 'all' stat = {good + neutral + bad} />
-      <DisplayStatistic text = 'average' stat = {averageRating()} />
-      <DisplayStatistic text = 'positive' stat = {positivePercentage()} />
-    </div>
+      <StatisticsDisplay stats = {stats} />
+    </>
   )
 }
 
