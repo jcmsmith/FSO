@@ -34,21 +34,23 @@ const StatisticsDisplay = ({ stats }) => {
   }
 
   return (
-    <div>
-      <StatisticLine text = 'good' stat = {stats.good} />
-      <StatisticLine text = 'neutral' stat = {stats.neutral} />
-      <StatisticLine text = 'bad' stat = {stats.bad} />
-      <StatisticLine text = 'all' stat = {stats.total} />
-      <StatisticLine text = 'average' stat = {averageRating()} />
-      <StatisticLine text = 'positive' stat = {positivePercentage()} />
-    </div>
+    <table>
+      <tbody>
+        <StatisticLine text = 'good' stat = {stats.good} />
+        <StatisticLine text = 'neutral' stat = {stats.neutral} />
+        <StatisticLine text = 'bad' stat = {stats.bad} />
+        <StatisticLine text = 'all' stat = {stats.total} />
+        <StatisticLine text = 'average' stat = {averageRating()} />
+        <StatisticLine text = 'positive' stat = {positivePercentage()} />
+      </tbody>
+    </table>
   )
 }
 
 const Header = ({ text }) => <h1>{text}</h1>
 
 const StatisticLine = ({ text, stat }) => {
-  return <p>{text} {stat}</p>
+  return <tr><td>{text} {stat}</td></tr>
 }
 
 const App = () => {
