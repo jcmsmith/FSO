@@ -10,8 +10,8 @@ const Button = ({ handleClick, text }) => {
 
 const Header = ({ text }) => <h1>{text}</h1>
 
-const DisplayRating = ({ text, count }) => {
-  return <p>{text} {count}</p>
+const DisplayStatistic = ({ text, stat }) => {
+  return <p>{text} {stat}</p>
 }
 
 const App = () => {
@@ -22,6 +22,31 @@ const App = () => {
   const goodRating = () => setGood(good + 1)
   const neutralRating = () => setNeutral(neutral + 1)
   const badRating = () => setBad(bad + 1)
+  let totalRatings = good + bad + neutral
+
+  const averageRating = () => {
+    const score = (good + bad * -1) / totalRatings
+
+    if (!isFinite(score))
+    {
+      return 0
+    }
+    
+    return score
+  }
+
+  const positivePercentage = () => {
+    if (bad === 0 && neutral === 0)
+    {
+      return '100%'
+    }
+
+    const avg = good / totalRatings
+
+    return avg + ' %'
+  }
+  
+
 
   return (
     <div>
@@ -31,9 +56,12 @@ const App = () => {
       <Button handleClick={badRating} text = 'bad' />
 
       <Header text = 'statistics' />
-      <DisplayRating text = 'good' count = {good} />
-      <DisplayRating text = 'neutral' count = {neutral} />
-      <DisplayRating text = 'bad' count = {bad} />
+      <DisplayStatistic text = 'good' stat = {good} />
+      <DisplayStatistic text = 'neutral' stat = {neutral} />
+      <DisplayStatistic text = 'bad' stat = {bad} />
+      <DisplayStatistic text = 'all' stat = {good + neutral + bad} />
+      <DisplayStatistic text = 'average' stat = {averageRating()} />
+      <DisplayStatistic text = 'positive' stat = {positivePercentage()} />
     </div>
   )
 }
