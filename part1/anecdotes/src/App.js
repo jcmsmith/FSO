@@ -31,16 +31,37 @@ const App = () => {
     setVotes(copy)
   }
 
+  const mostVotes = () => {
+    let most = 0
+    let i = 0
+
+    votes.forEach((element, index) => {
+      if (element > most)
+      {
+        most = element
+        i = index
+      }
+    })
+
+    return {most, i}
+  }
+
   console.log("selected: ", selected)
   console.log("Votes[selected]: ", votes[selected])
   console.log("Votes: ", votes)
+  console.log("Most votes: ")
 
   return (
     <div>
+      <h1>Anecdote of the day</h1>
       <p>{anecdotes[selected]}</p>
       <p>has {votes[selected]} votes</p>
       <Button handleClick={vote} text = "vote" />
       <Button handleClick={chooseRandom} text='next anecdote' />
+      <br></br><br></br>
+      <h2>Anecdote with most votes</h2>
+      <p>{anecdotes[mostVotes().i]}</p>
+      <p>has {mostVotes().most} votes</p>
     </div>
   )
 }
