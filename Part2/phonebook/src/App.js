@@ -1,19 +1,21 @@
 import { useState } from 'react'
 
-const Entry = ({name}) => <li>{name}</li>
+const Entry = ({name, number}) => <li>{name} {number}</li>
 
 const App = () => {
   const [persons, setPersons] = useState([
-    { name: 'Arto Hellas' }
+    { name: 'Arto Hellas', number: '040-1234567' }
   ]) 
   const [newName, setNewName] = useState('')
+
+  const [newNumber, setNewNumber] = useState('')
 
   const handlePersonChange = (event) => {
     console.log('handlePersonChange: ', event.target.value)
     setNewName(event.target.value)
   }
 
-  const addPerson = (event) => {
+  const addEntry = (event) => {
     event.preventDefault()
 
     if (persons.some((person) => person.name === newName))
@@ -22,18 +24,34 @@ const App = () => {
       console.log(`${newName} is already added to phonebook!`)
       return
     }
+    if (persons.some((person) => person.number === newNumber))
+    {
+      window.alert(`${newNumber} is already added to phonebook!`)
+      console.log(`${newNumber} is already added to phonebook!`)
+      return
+    }
 
-    setPersons(persons.concat({name: newName}))
+    setPersons(persons.concat({name: newName, number: newNumber}))
     setNewName('')
+    setNewNumber('')
   } 
+
+  const handleNumberChange = (event) => {
+    console.log('handle number change: ', event.target.value)
+    setNewNumber(event.target.value)
+  }
 
   return (
     <div>
       <h2>Phonebook</h2>
-      <form onSubmit={addPerson}>
+      <form onSubmit={addEntry}>
         <div>
           name: 
           <input value={newName} onChange={handlePersonChange} />
+        </div>
+        <div>
+          number:
+          <input value={newNumber} onChange={handleNumberChange} />
         </div>
         <div>
           <button type="submit">add</button>
@@ -43,7 +61,7 @@ const App = () => {
       <div>
         <ul>
           {persons.map((person) => 
-          <Entry key={person.name} name={person.name} />
+          <Entry key={person.name} name={person.name} number={person.number} />
           )}
         </ul>
       </div>
