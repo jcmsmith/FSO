@@ -21,6 +21,10 @@ function App() {
     setData(data)
   }
 
+  const handleDetailsButtonClick = (country) => {
+    setCountryFilter(country)
+  }
+
   const getCountriesHook = () => {
     axios
       .get("https://restcountries.com/v3.1/all")
@@ -38,7 +42,7 @@ function App() {
         find countries:
         <input value={countryFilter} onChange={handleFilterChange} />
       </div>
-      <Display data={data} />
+      <Display data={data} handleClick={handleDetailsButtonClick}/>
     </>
   )
 }
