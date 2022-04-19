@@ -1,5 +1,6 @@
-import axios from 'axios'
 import { nanoid } from 'nanoid'
+
+import Weather from './Weather'
 
 const Display = ({data, handleClick}) => {
   if (data.length > 10) {
@@ -14,18 +15,23 @@ const Display = ({data, handleClick}) => {
 
   if (data.length === 1) {
   
-    let languages = Object.values(data[0].languages)    
+    let name = data[0].name.common
+    let languages = Object.values(data[0].languages) 
 
     return (
       <div>
-        <h1>{data[0].name.common}</h1>
+        <h1>{name}</h1>
         <p>capital: {data[0].capital[0]}</p>
         <p>area: {data[0].area}</p>
+
         <h2>languages:</h2>
         <ul>
           {languages.map((language) => <li key={nanoid()}>{language}</li> )}
         </ul>
         <img src={data[0].flags.png} />
+
+        <h2>Weather in {name}</h2>
+        <Weather lat={data[0].latlng[0]} lon={data[0].latlng[1]}/>
       </div>
     )}
 
@@ -38,13 +44,11 @@ const Display = ({data, handleClick}) => {
       </div>
     )
   }
-  
-  const names = data.map(mapCountries)
 
   return (
     <div>
       <ul>
-        {names}
+        {data.map(mapCountries)}
       </ul>
     </div>
   )

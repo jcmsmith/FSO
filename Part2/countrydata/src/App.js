@@ -3,7 +3,6 @@ import axios from 'axios'
 
 import Display from './Components/Display'
 
-
 function App() {
   const [countryFilter, setCountryFilter] = useState('')
   const [data, setData] = useState([])
@@ -21,9 +20,7 @@ function App() {
     setData(data)
   }
 
-  const handleDetailsButtonClick = (country) => {
-    setCountryFilter(country)
-  }
+  const handleDetailsButtonClick = (country) => setCountryFilter(country)
 
   const getCountriesHook = () => {
     axios
