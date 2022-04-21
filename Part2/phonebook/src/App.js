@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import entryService from './services/EntryService'
 import Entries from './components/Entries'
 import EntryForm from './components/EntryForm'
+import Message from './components/Message'
 
 
 const App = () => {
@@ -10,6 +11,7 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [filter, setFilter] = useState('')
+  const [message, setMessage] = useState(null)
 
   const getPersons = () => {
     entryService
@@ -36,9 +38,14 @@ const App = () => {
         entryService
         .updateEntry(newEntry)
         .then((returnedPerson) => {
+          handleMessageDisplay(newName, 3000)
+
           setPersons(persons.map((person) => {
             return person.id !== newEntry.id ? person : returnedPerson
           }))
+
+          setNewName('')
+          setNewNumber('')
         })
       }
       return
@@ -46,12 +53,22 @@ const App = () => {
 
     const newEntry = {name: newName, number: newNumber, id: persons.length + 1}
 
-    entryService.addEntry(newEntry)
-
-    setPersons(persons.concat(newEntry))
-    setNewName('')
-    setNewNumber('')
-  } 
+    entryService
+      .addEntry(newEntry)
+      .then(() => {
+        handleMessageDisplay(newName, 3000)
+        setPersons(persons.concat(newEntry))
+        setNewName('')
+        setNewNumber('')
+      })
+  }
+  
+  const handleMessageDisplay = (text, time) => {
+    setMessage(`${text} added to phonebook!`)
+    setTimeout(() => {
+      setMessage(null)
+    }, time)
+  }
 
   const handleNumberChange = (event) => {
     console.log('handle number change: ', event.target.value)
@@ -91,6 +108,7 @@ const App = () => {
       </div>
 
       <h2>Add new entry</h2>
+      <Message msg={message} />
       <EntryForm 
         onSubmit={addEntry} 
         nameValue={newName} 
