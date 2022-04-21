@@ -1,38 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-
-const Entries = ({entriesToShow}) => {
-  return(
-    <div>
-      <ul>
-        {entriesToShow.map((person) => 
-          <Person key={person.id} name={person.name} number={person.number} />
-        )}
-      </ul>
-    </div>
-  )
-}
-
-const Person = ({name, number}) => <li>{name} {number}</li>
-
-const EntryForm = ({onSubmit, nameValue, numberValue, nameChange, numberChange}) => {
-  return(
-    <form onSubmit={onSubmit}>
-      <div>
-        name:
-        <input value={nameValue} onChange={nameChange} />
-      </div>
-      <div>
-        number:
-        <input value={numberValue} onChange={numberChange} />
-      </div>
-      <div>
-        <button type="submit">add</button>
-      </div>
-    </form>
-  )
-}
+import Entries from './components/Entries'
+import EntryForm from './components/EntryForm'
 
 
 const App = () => {
