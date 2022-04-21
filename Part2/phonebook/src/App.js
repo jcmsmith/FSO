@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
 
+import entryService from './services/EntryService'
 import Entries from './components/Entries'
 import EntryForm from './components/EntryForm'
 
@@ -10,6 +10,14 @@ const App = () => {
   const [newName, setNewName] = useState('')
   const [newNumber, setNewNumber] = useState('')
   const [filter, setFilter] = useState('')
+
+  const getPersons = () => {
+    entryService
+      .getAllEntries()
+      .then(response => setPersons(response))
+  }
+
+  useEffect(getPersons, [])
 
   const handleNameChange = (event) => {
     console.log('handlePersonChange: ', event.target.value)
@@ -32,7 +40,11 @@ const App = () => {
       return
     }
 
-    setPersons(persons.concat({name: newName, number: newNumber, id: persons.length + 1}))
+    const newEntry = {name: newName, number: newNumber, id: persons.length + 1}
+
+    entryService.addEntry(newEntry)
+
+    setPersons(persons.concat(newEntry))
     setNewName('')
     setNewNumber('')
   } 
@@ -45,18 +57,6 @@ const App = () => {
   const handleFilterChange = (event) => setFilter(event.target.value)
 
   const entriesToShow = persons.filter((person) => person.name.toLowerCase().includes(filter.toLowerCase()))
-
-  const getPersonsHook = () => {
-    console.log('starting getPersonsHook effect')
-    axios
-      .get('http://localhost:3001/persons')
-      .then(response => {
-        console.log('promise fulfilled - getting persons for initial state')
-        setPersons(response.data)
-      })
-  }
-
-  useEffect(getPersonsHook, [])
 
   return (
     <>
