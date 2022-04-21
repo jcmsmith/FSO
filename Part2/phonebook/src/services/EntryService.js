@@ -20,4 +20,10 @@ const updateEntry = (entry) => {
     return request.then((response) => response.data)
 }
 
-export default { getAllEntries, addEntry, updateEntry }
+const deleteEntry = (id) => {
+    console.log(`deleting entry ${id}`)
+    const request = axios.delete(`${baseUrl}/${id}`, id)
+    return request.then(response => response.data)
+}
+
+export default { getAllEntries, addEntry, updateEntry, deleteEntry }
