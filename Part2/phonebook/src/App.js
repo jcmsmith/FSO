@@ -25,16 +25,22 @@ const App = () => {
   const addEntry = (event) => {
     event.preventDefault()
 
-    if (persons.some((person) => person.name === newName))
-    {
-      window.alert(`${newName} is already added to phonebook!`)
-      console.log(`${newName} is already added to phonebook!`)
-      return
-    }
-    if (persons.some((person) => person.number === newNumber))
-    {
-      window.alert(`${newNumber} is already added to phonebook!`)
-      console.log(`${newNumber} is already added to phonebook!`)
+    let noteToChange = persons.find((person) => person.name === newName)
+
+    if (noteToChange) {
+      let confirm = window.confirm(`${newName} is already added to phonebook, replace the current number with a new one?`)
+
+      if (confirm) {
+        const newEntry = {...noteToChange, number: newNumber}
+
+        entryService
+        .updateEntry(newEntry)
+        .then((returnedPerson) => {
+          setPersons(persons.map((person) => {
+            return person.id !== newEntry.id ? person : returnedPerson
+          }))
+        })
+      }
       return
     }
 
