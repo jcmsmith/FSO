@@ -17,8 +17,6 @@ const App = () => {
       .then(response => setPersons(response))
   }
 
-  
-
   const handleNameChange = (event) => {
     console.log('handlePersonChange: ', event.target.value)
     setNewName(event.target.value)
@@ -55,16 +53,26 @@ const App = () => {
   }
 
   const handleDeleteButton = (id) => {
-    console.log('deleting entry:', id)
-    entryService.deleteEntry(id) 
-    entryService
-      .getAllEntries()
-      .then((entries) => setPersons(entries))
+    if (window.confirm(`Are you sure you wish to delete this entry?`))
+    {
+      console.log('deleting entry:', id)
+      entryService.deleteEntry(id)
+
+      setPersons(
+        persons.filter(
+          (person) => person.id !== id)
+      )
+    }
   }
 
   const handleFilterChange = (event) => setFilter(event.target.value)
 
-  const entriesToShow = persons.filter((person) => person.name.toLowerCase().includes(filter.toLowerCase()))
+  const entriesToShow = persons.filter(
+  (person) => 
+    person.name
+    .toLowerCase()
+    .includes(filter.toLowerCase())
+  )
 
   useEffect(getPersons, [])
 
