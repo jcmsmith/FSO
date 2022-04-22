@@ -12,6 +12,8 @@ const App = () => {
   const [newNumber, setNewNumber] = useState('')
   const [filter, setFilter] = useState('')
   const [message, setMessage] = useState(null)
+  const [messageIsError, setMessageIsError] = useState(false)
+
 
   const getPersons = () => {
     entryService
@@ -38,7 +40,7 @@ const App = () => {
         entryService
         .updateEntry(newEntry)
         .then((returnedPerson) => {
-          handleMessageDisplay(newName, 3000)
+          handleMessageDisplay(`Phonebook entry for ${newName}  updated!`, 3000, false)
 
           setPersons(persons.map((person) => {
             return person.id !== newEntry.id ? person : returnedPerson
@@ -46,6 +48,9 @@ const App = () => {
 
           setNewName('')
           setNewNumber('')
+        })
+        .catch(error => {
+          handleMessageDisplay(`Error! The entry you are trying to update does not exist!`, 5000, true)
         })
       }
       return
@@ -56,17 +61,19 @@ const App = () => {
     entryService
       .addEntry(newEntry)
       .then(() => {
-        handleMessageDisplay(newName, 3000)
+        handleMessageDisplay(`${newName} added to phonebook!`, 3000, false)
         setPersons(persons.concat(newEntry))
         setNewName('')
         setNewNumber('')
       })
   }
   
-  const handleMessageDisplay = (text, time) => {
-    setMessage(`${text} added to phonebook!`)
+  const handleMessageDisplay = (text, time, isError) => {
+    setMessageIsError(isError)
+    setMessage(text)
     setTimeout(() => {
       setMessage(null)
+      setMessageIsError(false)
     }, time)
   }
 
@@ -108,7 +115,7 @@ const App = () => {
       </div>
 
       <h2>Add new entry</h2>
-      <Message msg={message} />
+      <Message msg={message} isError={messageIsError} />
       <EntryForm 
         onSubmit={addEntry} 
         nameValue={newName} 

@@ -1,5 +1,5 @@
-const Message = ({ msg }) => {
-    console.log(msg)
+const Message = ({ msg, isError }) => {
+    console.log('isError', isError)
 
     if (msg === null) {return null}
 
@@ -14,8 +14,21 @@ const Message = ({ msg }) => {
         marginBottom: 5
     }
 
+    const errorStyle = {
+        color: 'red',
+        background: 'lightgrey',
+        fontStyle: 'bold',
+        fontSize: 16,
+        borderStyle: 'solid',
+        borderRadius: 5,
+        padding: 5,
+        marginBottom: 5
+    }
+
+    let style = isError ? errorStyle : messageStyle
+
     return(
-        <div style={messageStyle}>
+        <div style={style}>
             <p>{msg}</p>
         </div>
     )
