@@ -5,8 +5,13 @@ const Message = ({ msg }) => {
 
     const messageStyle = {
         color: 'green',
+        background: 'lightgrey',
         fontStyle: 'italic',
-        fontSize: 16
+        fontSize: 16,
+        borderStyle: 'solid',
+        borderRadius: 5,
+        padding: 5,
+        marginBottom: 5
     }
 
     return(
