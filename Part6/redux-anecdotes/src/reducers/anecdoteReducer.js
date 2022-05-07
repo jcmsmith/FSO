@@ -17,20 +17,39 @@ const asObject = (anecdote) => {
   }
 }
 
+const sortByVotes = (anecdotes) => {
+  const sorted = anecdotes.sort((previous, current) => {
+    if (previous.votes === current.votes) { return 0 }
+    return (previous.votes > current.votes) ? -1 : 1
+  })
+
+  return sorted
+}
+
 export const vote = (id) => {
-  console.log('vote', id)
+  console.log('vote action', id)
   return {
     type: 'VOTE',
     data: id
   }
 }
 
-export const createNew = (anecdote) => {
+export const createAnecdote = (anecdote) => {
   console.log('new anecdote', anecdote)
 
   return {
     type: 'NEW',
     data: asObject(anecdote)
+  }
+}
+
+export const replaceAll = (anecdotes) => {
+  console.log('new anecdotes', anecdotes)
+  const replacement = anecdotes.map(asObject)
+
+  return {
+    type: 'REPLACEALL',
+    data: replacement
   }
 }
 
@@ -42,16 +61,25 @@ const reducer = (state = initialState, action) => {
 
   switch (action.type) {
     case 'VOTE':
-      return state.map((anecdote) => {
-        if (anecdote.id === action.data) {
-          return { ...anecdote, votes: anecdote.votes + 1}
-        }
-        return anecdote
-      })
+      const id = action.data
+      const vote = state.find(anecdote => anecdote.id === id)
+      const changedAnecdote = {
+        ...vote,
+        votes: vote.votes + 1
+      }
+
+      const newAnecdotes = state.map(anecdote => 
+        anecdote.id !== id ? anecdote : changedAnecdote
+      )
+
+      return sortByVotes(newAnecdotes)
+
 
     case 'NEW':
       return state.concat(action.data)
 
+    case 'REPLACEALL':
+      return action.data
 
     default: return state
   }
