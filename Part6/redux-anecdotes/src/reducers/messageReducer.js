@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+import { createTimer } from './timerReducer'
+
 const initialState = [{ message: '', isError: false}]
 
 const messageSlice = createSlice({
@@ -7,16 +9,14 @@ const messageSlice = createSlice({
     initialState,
     reducers: {
         message(state, action) {
-            clearMessage()
-            const message = action.payload
+            const newMessage = action.payload
 
             return [{
-                message,
+                message: newMessage,
                 isError: false
             }]
         },
         errorMessage(state, action) {
-            clearMessage()
             const message = action.payload
 
             return [{
@@ -33,9 +33,9 @@ const messageSlice = createSlice({
 export const { message, errorMessage, clearMessage } = messageSlice.actions
 
 export const setNotification = (text, time) => {
-    return async dispatch => {
+    return dispatch => {
+        dispatch(createTimer(time))
         dispatch(message(text))
-        setTimeout(() => dispatch(clearMessage()), time *= 1000)
     }
 }
 
