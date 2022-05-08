@@ -37,13 +37,23 @@
     },
     {
       "content": "bananas",
-      "votes": 5,
+      "votes": 10,
       "id": "bvSqrvt"
     },
     {
       "content": "I like beans",
       "votes": 0,
       "id": "VLnswGm"
+    },
+    {
+      "content": "aggagsag",
+      "votes": 1,
+      "id": "PgPMaIr"
+    },
+    {
+      "content": "bananas",
+      "votes": 9,
+      "id": "gRrVEDa"
     }
   ]
 }
