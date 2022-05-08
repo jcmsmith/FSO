@@ -7,16 +7,12 @@ import { createNew } from '../services/anecdotes'
 const AnecdoteForm = (props) => {
     const dispatch = useDispatch()
 
-    const handleNewAnecdote = async (event) => {
+    const handleNewAnecdote = (event) => {
         event.preventDefault()
     
         const content = event.target.anecdoteInput.value
-
-        const newAnecdote = await createNew(content)
-
-        console.log('newAnecdote', newAnecdote)
     
-        dispatch(createAnecdote(newAnecdote))
+        dispatch(createAnecdote(content))
 
         const messageDisplayed = `New anecdote added: ${content}`
 
