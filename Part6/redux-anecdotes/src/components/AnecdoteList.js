@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
+
 import { vote } from '../reducers/anecdoteReducer'
 import { message, errorMessage, clearMessage } from '../reducers/messageReducer'
 
@@ -17,6 +18,7 @@ const Anecdote = ({ anecdote, handleClick }) => {
 const AnecdoteList = () => {
     const dispatch = useDispatch()
     const anecdotes = useSelector(state => state.anecdotes)
+    const filter = useSelector(state => state.filter)
 
     const voteHandler = (anecdote) => {
         const messageDisplayed = `Voted for anecdote: ${anecdote.content}`
@@ -28,13 +30,17 @@ const AnecdoteList = () => {
 
     return (
         <ul>
-            {anecdotes.map(anecdote =>
-                <Anecdote
-                    key={anecdote.id}
-                    anecdote={anecdote}
-                    handleClick={() => voteHandler(anecdote)}
-                />
-            )}
+            {anecdotes.map(anecdote => {
+                if (filter && !anecdote.content.toLowerCase().includes(filter.toLowerCase())) { return }
+
+                return (                
+                    <Anecdote
+                        key={anecdote.id}
+                        anecdote={anecdote}
+                        handleClick={() => voteHandler(anecdote)}
+                    />
+                )
+            })}
         </ul>
     )
 }
