@@ -62,6 +62,17 @@ const Footer = () => (
   </div>
 )
 
+const InputField = ({ name, value, onChange, clear }) => {
+  return (
+    <input 
+      name={name} 
+      value={value} 
+      onChange={onChange} 
+      onReset={clear}
+    />
+  )
+}
+
 const CreateNew = (props) => {
   const content = useField('content')
   const author = useField('author')
@@ -77,23 +88,31 @@ const CreateNew = (props) => {
     })
   }
 
+  const handleReset = (e) => {
+    e.preventDefault()
+    content.clear()
+    author.clear()
+    info.clear()
+  }
+
   return (
     <div>
       <h2>create a new anecdote</h2>
       <form onSubmit={handleSubmit}>
         <div>
           content
-          <input {...content} />
+          <InputField {...content} />
         </div>
         <div>
           author
-          <input {...author} />
+          <InputField {...author} />
         </div>
         <div>
           url for more info
-          <input {...info} />
+          <InputField {...info} />
         </div>
         <button>create</button>
+        <button onClick={handleReset} type='reset'>reset</button>
       </form>
     </div>
   )
