@@ -1,4 +1,44 @@
-interface Result {
+interface ExerciseParams {
+  targetHours: number;
+  dailyHours: Array<number>;
+}
+
+const parseExerciseArguments = (args: Array<string>): ExerciseParams => {
+  if (args.length < 4) throw new Error("Not enough arguments");
+  const targetHours = Number(args[2]);
+  if (isNaN(targetHours) || !isFinite(targetHours) || targetHours <= 0) {
+    throw new Error(`Invalid argument given for target hours: ${targetHours}`);
+  }
+  if (targetHours >= 8) {
+    throw new Error("Come on dude, that's way too many hours per day!");
+  }
+
+  let dailyHours: Array<number> = [];
+
+  args.forEach((element, index) => {
+    if (index <= 2) {
+      return;
+    }
+
+    const hours = Number(element);
+
+    if (isNaN(hours) || !isFinite(hours)) {
+      throw new Error(`Invalid argument given for daily hours: ${element}`);
+    }
+    if (hours < 0 || hours > 24) {
+      throw new Error(`Daily hours must be between 0 and 24!`);
+    }
+
+    dailyHours.push(hours);
+  });
+
+  return {
+    targetHours,
+    dailyHours,
+  };
+};
+
+interface ExerciseResult {
   periodLength: number;
   trainingDays: number;
   success: boolean;
@@ -9,9 +49,9 @@ interface Result {
 }
 
 const calculateExercises = (
-  dailyHours: Array<number>,
-  targetHours: number
-): Result => {
+  targetHours: number,
+  dailyHours: Array<number>
+): ExerciseResult => {
   const periodLength = dailyHours.length;
 
   const trainingDays = dailyHours.reduce((previousValue, currentValue) => {
@@ -60,4 +100,15 @@ const calculateExercises = (
   };
 };
 
-console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1], 2));
+try {
+  const { targetHours, dailyHours } = parseExerciseArguments(process.argv);
+  console.log(calculateExercises(targetHours, dailyHours));
+} catch (error: unknown) {
+  let errorMessage = "Something went wrong!";
+  if (error instanceof Error) {
+    errorMessage += " Error: " + error.message;
+  }
+  console.log(errorMessage);
+}
+
+//console.log(calculateExercises(2, [3, 0, 2, 4.5, 0, 3, 1]));
