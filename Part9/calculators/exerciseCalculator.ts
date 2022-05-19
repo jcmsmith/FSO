@@ -1,7 +1,4 @@
-interface ExerciseParams {
-  targetHours: number;
-  dailyHours: Array<number>;
-}
+import type { ExerciseParams, ExerciseResult } from "./types";
 
 const parseExerciseArguments = (args: Array<string>): ExerciseParams => {
   if (args.length < 4) throw new Error("Not enough arguments");
@@ -38,17 +35,7 @@ const parseExerciseArguments = (args: Array<string>): ExerciseParams => {
   };
 };
 
-interface ExerciseResult {
-  periodLength: number;
-  trainingDays: number;
-  success: boolean;
-  rating: 1 | 2 | 3;
-  ratingDescription: string;
-  target: number;
-  average: number;
-}
-
-const calculateExercises = (
+export const calculateExercises = (
   targetHours: number,
   dailyHours: Array<number>
 ): ExerciseResult => {
@@ -100,15 +87,23 @@ const calculateExercises = (
   };
 };
 
-try {
-  const { targetHours, dailyHours } = parseExerciseArguments(process.argv);
-  console.log(calculateExercises(targetHours, dailyHours));
-} catch (error: unknown) {
-  let errorMessage = "Something went wrong!";
-  if (error instanceof Error) {
-    errorMessage += " Error: " + error.message;
+const getExerciseDataFromCL = (args: Array<string>): ExerciseResult | null => {
+  let result = null;
+
+  try {
+    const { targetHours, dailyHours } = parseExerciseArguments(args);
+    result = calculateExercises(targetHours, dailyHours);
+  } catch (error: unknown) {
+    let errorMessage = "Something went wrong!";
+    if (error instanceof Error) {
+      errorMessage += " Error: " + error.message;
+    }
+    console.log(errorMessage);
+  } finally {
+    return result;
   }
-  console.log(errorMessage);
-}
+};
+
+export default getExerciseDataFromCL;
 
 //console.log(calculateExercises(2, [3, 0, 2, 4.5, 0, 3, 1]));
