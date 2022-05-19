@@ -10,7 +10,7 @@ const parseExerciseArguments = (args: Array<string>): ExerciseParams => {
     throw new Error("Come on dude, that's way too many hours per day!");
   }
 
-  let dailyHours: Array<number> = [];
+  const dailyHours: Array<number> = [];
 
   args.forEach((element, index) => {
     if (index <= 2) {
@@ -99,9 +99,8 @@ const getExerciseDataFromCL = (args: Array<string>): ExerciseResult | null => {
       errorMessage += " Error: " + error.message;
     }
     console.log(errorMessage);
-  } finally {
-    return result;
   }
+  return result;
 };
 
 export default getExerciseDataFromCL;

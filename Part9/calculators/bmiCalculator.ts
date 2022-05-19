@@ -29,7 +29,7 @@ export const calculateBmi = (
   height: number,
   weight: number
 ): string | ErrorMessage => {
-  let errorMessage: string = "";
+  let errorMessage = "";
 
   if (isNaN(height) || isNaN(weight)) {
     errorMessage = "Invalid values provided for height and/or weight!";
@@ -58,7 +58,7 @@ export const calculateBmi = (
   const overweight: boolean = bmi > 25 && bmi < 30;
   const obese: boolean = bmi >= 30;
 
-  let result: string = "Something went wrong";
+  let result = "Something went wrong";
 
   if (ideal) {
     result = "Ideal (healthy weight)";
@@ -77,7 +77,7 @@ export const calculateBmi = (
 };
 
 const getBmiFromCL = (args: Array<string>): string => {
-  let result: string = "If you see this message, something isn't right!";
+  let result = "If you see this message, something isn't right!";
 
   try {
     const { height, weight } = parseBmiArguments(args);
@@ -88,9 +88,9 @@ const getBmiFromCL = (args: Array<string>): string => {
       errorMessage += " Error: " + error.message;
     }
     console.log(errorMessage);
-  } finally {
-    return result;
   }
+
+  return result;
 };
 
 export default getBmiFromCL;
