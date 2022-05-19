@@ -37,18 +37,21 @@ const calculateBmi = (height: number, weight: number): string => {
   const overweight: boolean = bmi > 25 && bmi < 30;
   const obese: boolean = bmi > 30;
 
+  let result: string;
+
   if (ideal) {
-    return "Ideal (healthy weight)";
+    result = "Ideal (healthy weight)";
   }
   if (underweight) {
-    return "Underweight!";
+    result = "Underweight!";
   }
   if (overweight) {
-    return "Overweight!";
+    result = "Overweight!";
+  } else {
+    result = "Obese!!";
   }
-  if (obese) {
-    return "Obese!!";
-  }
+
+  return result;
 };
 
 try {
