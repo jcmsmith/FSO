@@ -1,0 +1,70 @@
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+    "name": "Joe Mama",
+    "dateOfBirth": "Sometime",
+    "ssn": "32987235987",
+    "gender": "human",
+    "occupation": "Living Life"
+}
+
+###
+
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+    "dateOfBirth": "Sometime",
+    "ssn": "32987235987",
+    "gender": "human",
+    "occupation": "Living Life"
+}
+
+###
+
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+    "name": "Joe",
+    "ssn": "32987235987",
+    "gender": "human",
+    "occupation": "Living Life"
+}
+
+###
+
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+    "name": "Mama",
+    "dateOfBirth": "Sometime",
+    "gender": "human",
+    "occupation": "Living Life"
+}
+
+###
+
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+    "name": "HumanPerson",
+    "dateOfBirth": "Sometime",
+    "ssn": "32987235987",
+    "occupation": "Living Life"
+}
+
+###
+
+POST http://localhost:3001/api/patients
+Content-Type: application/json
+
+{
+    "name": "Someone else",
+    "dateOfBirth": "Sometime",
+    "ssn": "32987235987",
+    "gender": "human",
+}
