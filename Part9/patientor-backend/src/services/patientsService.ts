@@ -1,4 +1,7 @@
-import type { Patient } from "../types";
+/* eslint-disable */
+import { v1 as uuid } from "uuid";
+
+import type { Patient, NewPatient } from "../types";
 import patientsData from "../../data/patients";
 
 const getAllPatients = (): Omit<Patient, "ssn">[] => {
@@ -11,8 +14,14 @@ const getAllPatients = (): Omit<Patient, "ssn">[] => {
   }));
 };
 
-const addPatient = () => {
-  return null;
+const addPatient = (patient: NewPatient): Patient => {
+  const newPatient = {
+    id: uuid(),
+    ...patient,
+  };
+
+  patientsData.push(newPatient);
+  return newPatient;
 };
 
 export default {
