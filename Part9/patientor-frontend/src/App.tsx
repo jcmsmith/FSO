@@ -10,6 +10,8 @@ import { Patient } from "./types";
 import PatientListPage from "./PatientListPage";
 import { Typography } from "@material-ui/core";
 
+import PatientInfoPage from "./PatientInfoPage/PatientInfoPage";
+
 const App = () => {
   const [, dispatch] = useStateValue();
   React.useEffect(() => {
@@ -40,6 +42,7 @@ const App = () => {
           </Button>
           <Divider hidden />
           <Routes>
+            <Route path={`/patients/:id`} element={<PatientInfoPage />} />
             <Route path="/" element={<PatientListPage />} />
           </Routes>
         </Container>

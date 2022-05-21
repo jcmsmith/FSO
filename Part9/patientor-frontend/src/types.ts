@@ -7,7 +7,7 @@ export interface Diagnosis {
 export enum Gender {
   Male = "male",
   Female = "female",
-  Other = "other"
+  Other = "other",
 }
 
 export interface Patient {
@@ -18,3 +18,16 @@ export interface Patient {
   ssn?: string;
   dateOfBirth?: string;
 }
+
+export const isPatient = (param: unknown): param is Patient => {
+  if (typeof param === "object" && param !== null) {
+    return (
+      "id" in param &&
+      "name" in param &&
+      "occupation" in param &&
+      "gender" in param
+    );
+  } else {
+    return false;
+  }
+};
