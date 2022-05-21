@@ -6,6 +6,8 @@ import patientsRouter from "./routes/patients";
 
 const app = express();
 
+app.set("debug", true);
+
 app.use(express.json());
 app.use(cors());
 

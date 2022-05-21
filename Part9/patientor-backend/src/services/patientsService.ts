@@ -1,10 +1,9 @@
-/* eslint-disable */
 import { v1 as uuid } from "uuid";
 
-import type { Patient, NewPatient } from "../types";
+import type { Patient, NewPatient, PublicPatient } from "../types";
 import patientsData from "../../data/patients";
 
-const getAllPatients = (): Omit<Patient, "ssn">[] => {
+const getAllPatients = (): PublicPatient[] => {
   return patientsData.map(({ id, name, dateOfBirth, gender, occupation }) => ({
     id,
     name,
@@ -12,6 +11,16 @@ const getAllPatients = (): Omit<Patient, "ssn">[] => {
     gender,
     occupation,
   }));
+};
+
+const getPatientById = (id: string): PublicPatient => {
+  const patient = patientsData.find((patient) => patient.id === id);
+
+  if (patient) {
+    return patient;
+  } else {
+    throw new Error("Patient not found!");
+  }
 };
 
 const addPatient = (patient: NewPatient): Patient => {
@@ -27,4 +36,5 @@ const addPatient = (patient: NewPatient): Patient => {
 export default {
   getAllPatients,
   addPatient,
+  getPatientById,
 };
