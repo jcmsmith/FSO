@@ -11,7 +11,7 @@ import { apiBaseUrl } from "../constants";
 import { Patient, isPatient, Gender } from "../types";
 
 const PatientInfoPage = () => {
-  const [{ currentPatient }, dispatch] = useStateValue();
+  const [{ currentPatient, diagnoses }, dispatch] = useStateValue();
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
@@ -64,6 +64,8 @@ const PatientInfoPage = () => {
       <p>ssn: {currentPatient.ssn}</p>
       <p>occupation: {currentPatient.occupation}</p>
       <h3>Entries:</h3>
+      {currentPatient.entries[0] === undefined ? <p>No entries</p> : null}
+
       {currentPatient.entries.map((entry) => {
         return (
           <div key={entry.id}>
@@ -71,7 +73,22 @@ const PatientInfoPage = () => {
             <p>Date: {entry.date}</p>
             <p>{entry.description}</p>
             {entry.diagnosisCodes?.map((code) => {
-              return <div key={code}>{code}</div>;
+              const codeDiagnosis = diagnoses.find(
+                (diagnosis) => diagnosis.code === code
+              );
+
+              return (
+                <div key={code}>
+                  <p>
+                    {code}
+                    {"  -  ["}
+                    {codeDiagnosis?.name}
+                    {"]  -  ["}
+                    {codeDiagnosis?.latin}
+                    {"]"}
+                  </p>
+                </div>
+              );
             })}
             <p>--------------------------------</p>
           </div>

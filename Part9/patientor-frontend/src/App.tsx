@@ -9,8 +9,9 @@ import {
   setPatientList,
   setCurrentPatient,
   blankPatient,
+  setDiagnoses,
 } from "./state";
-import { Patient } from "./types";
+import { Patient, Diagnosis, isDiagnosis } from "./types";
 
 import PatientListPage from "./PatientListPage";
 import { Typography } from "@material-ui/core";
@@ -19,6 +20,7 @@ import PatientInfoPage from "./PatientInfoPage/PatientInfoPage";
 
 const App = () => {
   const [, dispatch] = useStateValue();
+
   React.useEffect(() => {
     void axios.get<void>(`${apiBaseUrl}/ping`);
 
@@ -44,6 +46,27 @@ const App = () => {
 
     dispatch(setCurrentPatient(blankPatient));
   }, [isHomepage]);
+
+  React.useEffect(() => {
+    const diagnoses: Diagnosis[] = [];
+
+    axios
+      .get<Diagnosis[]>(`${apiBaseUrl}/diagnoses`)
+      .then((response) => {
+        response.data.forEach((diagnosis) => {
+          if (!isDiagnosis(diagnosis)) {
+            console.log("Recieved data was not of type Diagnosis!", diagnosis);
+          } else {
+            diagnoses.push(diagnosis);
+          }
+        });
+
+        dispatch(setDiagnoses(diagnoses));
+      })
+      .catch((e) => {
+        console.error(e);
+      });
+  });
 
   return (
     <div className="App">

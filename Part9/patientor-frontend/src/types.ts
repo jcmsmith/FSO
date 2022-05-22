@@ -74,3 +74,11 @@ export const isPatient = (param: unknown): param is Patient => {
     return false;
   }
 };
+
+export const isDiagnosis = (param: unknown): param is Diagnosis => {
+  if (typeof param === "object" && param !== null) {
+    return "code" in param && "name" in param;
+  } else {
+    return false;
+  }
+};
