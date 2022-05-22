@@ -15,6 +15,7 @@ export const blankPatient: Patient = {
   gender: Gender.Other,
   ssn: "none",
   dateOfBirth: "none",
+  entries: [],
 };
 
 const initialState: State = {

@@ -37,7 +37,7 @@ export const reducer = (state: State, action: Action): State => {
         },
       };
     case "SET_CURRENTPATIENT":
-      console.log("setting current patient");
+      console.log("setting current patient", action.payload);
 
       return {
         ...state,
