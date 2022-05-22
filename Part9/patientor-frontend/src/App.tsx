@@ -11,7 +11,8 @@ import {
   blankPatient,
   setDiagnoses,
 } from "./state";
-import { Patient, Diagnosis, isDiagnosis } from "./types";
+import { Patient, Diagnosis } from "./types";
+import { isDiagnosis } from "./utils";
 
 import PatientListPage from "./PatientListPage";
 import { Typography } from "@material-ui/core";
@@ -66,7 +67,7 @@ const App = () => {
       .catch((e) => {
         console.error(e);
       });
-  });
+  }, []);
 
   return (
     <div className="App">

@@ -8,10 +8,12 @@ import TransgenderIcon from "@mui/icons-material/Transgender";
 import { useStateValue } from "../state";
 import { setCurrentPatient } from "../state";
 import { apiBaseUrl } from "../constants";
-import { Patient, isPatient, Gender } from "../types";
+import { Patient, Gender } from "../types";
+import { isPatient } from "../utils";
+import EntryDetails from "./EntryDetails";
 
 const PatientInfoPage = () => {
-  const [{ currentPatient, diagnoses }, dispatch] = useStateValue();
+  const [{ currentPatient }, dispatch] = useStateValue();
   const { id } = useParams<{ id: string }>();
 
   useEffect(() => {
@@ -40,7 +42,7 @@ const PatientInfoPage = () => {
           }
         });
     }
-  }, []);
+  }, [id]);
 
   //console.log(currentPatient);
 
@@ -69,27 +71,7 @@ const PatientInfoPage = () => {
       {currentPatient.entries.map((entry) => {
         return (
           <div key={entry.id}>
-            <p>Entry id: {entry.id}</p>
-            <p>Date: {entry.date}</p>
-            <p>{entry.description}</p>
-            {entry.diagnosisCodes?.map((code) => {
-              const codeDiagnosis = diagnoses.find(
-                (diagnosis) => diagnosis.code === code
-              );
-
-              return (
-                <div key={code}>
-                  <p>
-                    {code}
-                    {"  -  ["}
-                    {codeDiagnosis?.name}
-                    {"]  -  ["}
-                    {codeDiagnosis?.latin}
-                    {"]"}
-                  </p>
-                </div>
-              );
-            })}
+            <EntryDetails {...entry} />
             <p>--------------------------------</p>
           </div>
         );

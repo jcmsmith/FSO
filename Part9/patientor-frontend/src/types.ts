@@ -35,12 +35,12 @@ interface BaseEntry {
   diagnosisCodes?: Array<Diagnosis["code"]>;
 }
 
-interface HealthCheckEntry extends BaseEntry {
+export interface HealthCheckEntry extends BaseEntry {
   type: "HealthCheck";
   healthCheckRating: HealthCheckRating;
 }
 
-interface OccupationalHealthcareEntry extends BaseEntry {
+export interface OccupationalHealthcareEntry extends BaseEntry {
   type: "OccupationalHealthcare";
   employerName: string;
   sickLeave?: {
@@ -49,7 +49,7 @@ interface OccupationalHealthcareEntry extends BaseEntry {
   };
 }
 
-interface HospitalEntry extends BaseEntry {
+export interface HospitalEntry extends BaseEntry {
   type: "Hospital";
   discharge: {
     date: string;
@@ -61,24 +61,3 @@ export type Entry =
   | HospitalEntry
   | OccupationalHealthcareEntry
   | HealthCheckEntry;
-
-export const isPatient = (param: unknown): param is Patient => {
-  if (typeof param === "object" && param !== null) {
-    return (
-      "id" in param &&
-      "name" in param &&
-      "occupation" in param &&
-      "gender" in param
-    );
-  } else {
-    return false;
-  }
-};
-
-export const isDiagnosis = (param: unknown): param is Diagnosis => {
-  if (typeof param === "object" && param !== null) {
-    return "code" in param && "name" in param;
-  } else {
-    return false;
-  }
-};
