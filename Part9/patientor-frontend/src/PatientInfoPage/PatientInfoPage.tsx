@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import MaleIcon from "@mui/icons-material/Male";
 import FemaleIcon from "@mui/icons-material/Female";
@@ -15,6 +15,7 @@ import EntryDetails from "./EntryDetails";
 const PatientInfoPage = () => {
   const [{ currentPatient }, dispatch] = useStateValue();
   const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!id || typeof id !== "string") {
@@ -76,6 +77,13 @@ const PatientInfoPage = () => {
           </div>
         );
       })}
+      <button
+        onClick={() => {
+          navigate(`/api/patients/${id as string}/newentry`);
+        }}
+      >
+        Add new entry
+      </button>
     </>
   );
 };

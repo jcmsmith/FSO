@@ -9,7 +9,7 @@ import {
 } from "@material-ui/core";
 import { Diagnosis, Gender } from "../types";
 import { InputLabel } from "@material-ui/core";
-import Input from '@material-ui/core/Input';
+import Input from "@material-ui/core/Input";
 
 // structure of a single option
 export type GenderOption = {
@@ -24,26 +24,36 @@ type SelectFieldProps = {
   options: GenderOption[];
 };
 
-const FormikSelect = ({ field, ...props }: FieldProps) => <Select {...field} {...props} />;
+const FormikSelect = ({ field, ...props }: FieldProps) => {
+  console.log(field, props);
 
-export const SelectField = ({ name, label, options }: SelectFieldProps) => (
-  <>
-    <InputLabel>{label}</InputLabel>
-    <Field
-      fullWidth
-      style={{ marginBottom: "0.5em" }}
-      label={label}
-      component={FormikSelect}
-      name={name}
-    >
-      {options.map((option) => (
-        <MenuItem key={option.value} value={option.value}>
-          {option.label || option.value}
-        </MenuItem>
-      ))}
-    </Field>
-  </>
-);
+  // I was getting errors and an "uncontrolled component" warning for the health ratings until I added defaultValue... but I added it here on accident, yet it works now?!?!?!
+  // I'm definitely not importing it and I'm definitely using the correct one in AddEntryForm...... WTF?
+  return <Select {...field} {...props} defaultValue={""} />;
+};
+
+export const SelectField = ({ name, label, options }: SelectFieldProps) => {
+  console.log(name, label, options);
+
+  return (
+    <>
+      <InputLabel>{label}</InputLabel>
+      <Field
+        fullWidth
+        style={{ marginBottom: "0.5em" }}
+        label={label}
+        component={FormikSelect}
+        name={name}
+      >
+        {options.map((option) => (
+          <MenuItem key={option.value} value={option.value}>
+            {option.label || option.value}
+          </MenuItem>
+        ))}
+      </Field>
+    </>
+  );
+};
 
 interface TextProps extends FieldProps {
   label: string;
@@ -91,7 +101,7 @@ export const NumberField = ({ field, label, min, max }: NumberProps) => {
           if (value > max) setValue(max);
           else if (value <= min) setValue(min);
           else setValue(Math.floor(value));
-      }}
+        }}
       />
       <Typography variant="subtitle2" style={{ color: "red" }}>
         <ErrorMessage name={field.name} />
@@ -104,17 +114,20 @@ export const DiagnosisSelection = ({
   diagnoses,
   setFieldValue,
   setFieldTouched,
+  setDiagnosis,
 }: {
   diagnoses: Diagnosis[];
   setFieldValue: FormikProps<{ diagnosisCodes: string[] }>["setFieldValue"];
   setFieldTouched: FormikProps<{ diagnosisCodes: string[] }>["setFieldTouched"];
+  setDiagnosis: (diagnosisCodes: string[]) => void;
 }) => {
   const [selectedDiagnoses, setDiagnoses] = useState<string[]>([]);
   const field = "diagnosisCodes";
-  const onChange = (data: string[]) => {    
+  const onChange = (data: string[]) => {
     setDiagnoses([...data]);
     setFieldTouched(field, true);
     setFieldValue(field, selectedDiagnoses);
+    setDiagnosis([...data]);
   };
 
   const stateOptions = diagnoses.map((diagnosis) => ({
@@ -124,9 +137,14 @@ export const DiagnosisSelection = ({
   }));
 
   return (
-    <FormControl style={{ width: 552, marginBottom: '30px' }}>
+    <FormControl style={{ width: 552, marginBottom: "30px" }}>
       <InputLabel>Diagnoses</InputLabel>
-      <Select multiple value={selectedDiagnoses} onChange={(e) => onChange(e.target.value as string[])} input={<Input />}>
+      <Select
+        multiple
+        value={selectedDiagnoses}
+        onChange={(e) => onChange(e.target.value as string[])}
+        input={<Input />}
+      >
         {stateOptions.map((option) => (
           <MenuItem key={option.key} value={option.value}>
             {option.text}

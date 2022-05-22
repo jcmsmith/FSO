@@ -18,6 +18,7 @@ import PatientListPage from "./PatientListPage";
 import { Typography } from "@material-ui/core";
 
 import PatientInfoPage from "./PatientInfoPage/PatientInfoPage";
+import AddEntryForm from "./PatientInfoPage/AddEntryForm";
 
 const App = () => {
   const [, dispatch] = useStateValue();
@@ -80,8 +81,9 @@ const App = () => {
         </Button>
         <Divider hidden />
         <Routes>
-          <Route path={`/patients/:id`} element={<PatientInfoPage />} />
+          <Route path={`/api/patients/:id`} element={<PatientInfoPage />} />
           <Route path="/" element={<PatientListPage />} />
+          <Route path="/api/patients/:id/newentry" element={<AddEntryForm />} />
         </Routes>
       </Container>
     </div>

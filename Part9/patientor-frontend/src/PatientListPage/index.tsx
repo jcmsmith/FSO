@@ -68,7 +68,7 @@ const PatientListPage = () => {
           {Object.values(patients).map((patient: Patient) => (
             <TableRow key={patient.id}>
               <TableCell>
-                <Link to={`/patients/${patient.id}`}>{patient.name}</Link>
+                <Link to={`/api/patients/${patient.id}`}>{patient.name}</Link>
               </TableCell>
               <TableCell>{patient.gender}</TableCell>
               <TableCell>{patient.occupation}</TableCell>
