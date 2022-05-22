@@ -13,7 +13,7 @@ const getAllPatients = (): PublicPatient[] => {
   }));
 };
 
-const getPatientById = (id: string): PublicPatient => {
+const getPatientById = (id: string): Patient => {
   const patient = patientsData.find((patient) => patient.id === id);
 
   if (patient) {

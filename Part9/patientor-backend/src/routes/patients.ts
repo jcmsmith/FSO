@@ -21,6 +21,8 @@ router.get(`/:id`, (req, res) => {
 
   try {
     const patient = service.getPatientById(id);
+    console.log(patient);
+
     res.status(200).json(patient);
   } catch (e: unknown) {
     res.status(404).send(getErrorMessage(e));
@@ -29,7 +31,6 @@ router.get(`/:id`, (req, res) => {
 
 router.post("/", (req, res) => {
   try {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
     const newPatient = convertToNewPatient(req.body);
     const addedPatient = service.addPatient(newPatient);
     res.status(200).json(addedPatient);
