@@ -1,0 +1,95 @@
+#Successful - health
+POST http://localhost:3001/api/patients/d27736ec-f723-11e9-8f0b-362b9e155667/entries
+Content-Type: application/json
+
+{
+  "description": "Patient LOVES cheese",
+  "date": "07/04/1969",
+  "specialist": "Dr. Death",
+  "healthCheckRating": "Healthy",
+  "type": "HealthCheck"
+}
+
+###
+
+#Succesful - occupation
+POST http://localhost:3001/api/patients/d27736ec-f723-11e9-8f0b-362b9e155667/entries
+Content-Type: application/json
+
+{
+  "description": "Patient HATES cheese",
+  "date": "01/31/1969",
+  "specialist": "Dr. Doom",
+  "employerName": "FBI",
+  "type": "OccupationalHealthcare"
+}
+
+###
+
+#Succesful - hospital
+POST http://localhost:3001/api/patients/d27736ec-f723-11e9-8f0b-362b9e155667/entries
+Content-Type: application/json
+
+{
+  "description": "Patient is insane",
+  "date": "09/05/1988",
+  "specialist": "Dr. Discovery",
+  "discharge" :{
+    "date": "Never",
+    "criteria": "N/A"
+  },
+  "type": "Hospital"
+}
+
+###
+
+#fail - health
+POST http://localhost:3001/api/patients/d27736ec-f723-11e9-8f0b-362b9e155667/entries
+Content-Type: application/json
+
+{
+  "description": "Patient LOVES cheese",
+  "date": "07/04/1969",
+  "specialist": "Dr. Death",
+  "type": "HealthCheck"
+}
+
+###
+
+#fail - occupation
+POST http://localhost:3001/api/patients/d27736ec-f723-11e9-8f0b-362b9e155667/entries
+Content-Type: application/json
+
+{
+  "description": "Patient HATES cheese",
+  "date": "01/31/1969",
+  "specialist": "Dr. Doom",
+  "type": "OccupationalHealthcare"
+}
+
+###
+
+#fail - hospital
+POST http://localhost:3001/api/patients/d27736ec-f723-11e9-8f0b-362b9e155667/entries
+Content-Type: application/json
+
+{
+  "description": "Patient is insane",
+  "date": "09/05/1988",
+  "specialist": "Dr. Discovery",
+  "discharge" :{},
+  "type": "Hospital"
+}
+
+###
+
+#fail - hospital
+POST http://localhost:3001/api/patients/d27736ec-f723-11e9-8f0b-362b9e155667/entries
+Content-Type: application/json
+
+{
+  "description": "Patient is insane",
+  "date": "09/05/1988",
+  "specialist": "Dr. Discovery",
+  "type": "Hospital"
+}
