@@ -8,16 +8,18 @@ export type State = {
   currentPatient: Patient;
 };
 
+export const blankPatient: Patient = {
+  id: "none",
+  name: "none",
+  occupation: "none",
+  gender: Gender.Other,
+  ssn: "none",
+  dateOfBirth: "none",
+};
+
 const initialState: State = {
   patients: {},
-  currentPatient: {
-    id: "none",
-    name: "none",
-    occupation: "none",
-    gender: Gender.Other,
-    ssn: "none",
-    dateOfBirth: "none",
-  },
+  currentPatient: blankPatient,
 };
 
 export const StateContext = createContext<[State, React.Dispatch<Action>]>([

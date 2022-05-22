@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import MaleIcon from "@mui/icons-material/Male";
@@ -5,8 +6,8 @@ import FemaleIcon from "@mui/icons-material/Female";
 import TransgenderIcon from "@mui/icons-material/Transgender";
 
 import { useStateValue } from "../state";
+import { setCurrentPatient } from "../state";
 import { apiBaseUrl } from "../constants";
-import { useEffect } from "react";
 import { Patient, isPatient, Gender } from "../types";
 
 const PatientInfoPage = () => {
@@ -25,7 +26,7 @@ const PatientInfoPage = () => {
         .then((response) => {
           const patient = response.data;
           if (isPatient(patient)) {
-            dispatch({ type: "SET_CURRENTPATIENT", payload: patient });
+            dispatch(setCurrentPatient(patient));
           } else {
             console.error("Data recieved was not of type Patient!", patient);
             return <p>Something went wrong!</p>;
@@ -41,7 +42,7 @@ const PatientInfoPage = () => {
     }
   }, []);
 
-  console.log(currentPatient);
+  //console.log(currentPatient);
 
   if (currentPatient.name === "none") {
     return <p>loading...</p>;
