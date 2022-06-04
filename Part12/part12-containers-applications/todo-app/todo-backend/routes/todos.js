@@ -6,8 +6,6 @@ const { getAsync, setAsync } = require("../redis/index");
 const router = express.Router();
 router.use(express.json());
 
-setAsync("count", 0);
-
 /* GET todos listing. */
 router.get("/", async (_, res) => {
   const todos = await Todo.find({});
@@ -16,8 +14,15 @@ router.get("/", async (_, res) => {
 
 /* POST todo to listing. */
 router.post("/", async (req, res) => {
-  const count = await getAsync("count");
-  await setAsync("count", parseInt(count) + 1);
+  const response = await getAsync("count");
+  let count = parseInt(response);
+
+  if (isNaN(count) || typeof count !== "number") {
+    await setAsync("count", 0);
+    count = 0;
+  } else {
+    await setAsync("count", parseInt(count) + 1);
+  }
 
   const todo = await Todo.create({
     text: req.body.text,

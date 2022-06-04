@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const redis = require("../redis");
-const { getAsync } = require("../redis/index");
+const { getAsync, setAsync } = require("../redis/index");
 
 const configs = require("../util/config");
 
@@ -18,10 +18,17 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/statistics", async (req, res) => {
-  const count = await getAsync("count");
-  const response = { added_todos: parseInt(count) };
+  const response = await getAsync("count");
+  let count = parseInt(response);
 
-  res.send(response);
+  if (isNaN(count) || typeof count !== "number") {
+    await setAsync("count", 0);
+    count = 0;
+  }
+
+  const data = { added_todos: count };
+
+  res.send(data);
 });
 
 module.exports = router;
