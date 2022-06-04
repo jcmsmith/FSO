@@ -1,0 +1,21 @@
+GET http://localhost:3000/todos/statistics
+
+###
+
+POST http://localhost:3000/todos/
+Content-Type: application/json
+
+{
+    "text": "A task",
+    "done": "false"
+}
+
+###
+
+POST http://localhost:3000/todos/
+Content-Type: application/json
+
+{
+    "text": "Another task",
+    "done": "false"
+}
