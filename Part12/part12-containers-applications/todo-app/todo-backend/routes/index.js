@@ -1,9 +1,15 @@
 const express = require("express");
 const router = express.Router();
 const redis = require("../redis");
-const { getAsync, setAsync } = require("../redis/index");
+const cors = require("cors");
 
+const { getAsync, setAsync } = require("../redis/index");
+const todosRouter = require("./todos");
 const configs = require("../util/config");
+
+router.use(cors());
+router.use(express.static("build"));
+router.use(express.json());
 
 let visits = 0;
 
@@ -30,5 +36,7 @@ router.get("/statistics", async (req, res) => {
 
   res.send(data);
 });
+
+router.use("/todos", todosRouter);
 
 module.exports = router;

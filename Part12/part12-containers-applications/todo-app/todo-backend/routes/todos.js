@@ -60,7 +60,5 @@ singleRouter.put("/", async (req, res) => {
 });
 
 router.use("/:id", findByIdMiddleware, singleRouter);
-router.use(express.json());
-router.use(express.static("build"));
 
 module.exports = router;
