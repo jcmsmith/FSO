@@ -12,7 +12,13 @@ RUN npm run build
 
 ###########
 
+FROM build-stage AS test-stage
+
+RUN npm run test
+
+###########
+
 FROM nginx:1.20-alpine
 
 # The target location here was found from the docker hub page
-COPY --from=build-stage /usr/src/app/build /usr/share/nginx/html
+COPY --from=test-stage /usr/src/app/build /usr/share/nginx/html
