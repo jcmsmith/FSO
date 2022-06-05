@@ -4,7 +4,6 @@ const redis = require("../redis");
 const { getAsync, setAsync } = require("../redis/index");
 
 const router = express.Router();
-router.use(express.json());
 
 /* GET todos listing. */
 router.get("/", async (_, res) => {
@@ -61,5 +60,7 @@ singleRouter.put("/", async (req, res) => {
 });
 
 router.use("/:id", findByIdMiddleware, singleRouter);
+router.use(express.json());
+router.use(express.static("build"));
 
 module.exports = router;
