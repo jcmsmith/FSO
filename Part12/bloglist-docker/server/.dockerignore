@@ -1,0 +1,12 @@
+.gitignore
+.dockerignore
+
+requests/
+
+.env
+.env.ci
+.env.production
+
+README.md
+
+node_modules
