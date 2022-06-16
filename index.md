@@ -1,6 +1,6 @@
 # The University of Helsinki - Full Stack Open
 
-This repository contains all of my submissions for the Full Stack Open course.
+My submissions for the Full Stack Open course:
 
 - [Fundamentals of web apps](https://jcmsmith.github.io/Full-Stack-open/part0.html)
 - [Introduction to React](https://jcmsmith.github.io/Full-Stack-open/part1.html)
