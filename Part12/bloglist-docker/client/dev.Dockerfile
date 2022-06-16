@@ -10,6 +10,4 @@ RUN npm install
 
 COPY . /usr/src/appclient/
 
-ENV BACKEND_URL=http://localhost:3001/api
-
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]

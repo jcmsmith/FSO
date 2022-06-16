@@ -11,6 +11,8 @@ services:
       - type: bind
         source: ./server/
         target: /usr/src/appserver/
+    env_file:
+      - .env
 
   app:
     container_name: bl-client

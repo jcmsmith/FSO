@@ -20,7 +20,7 @@ const loginAsUser = async (username = "", password = "") => {
     };
   }
 
-  const login = await api.post("/api/login").send(user).expect(200);
+  const login = await api.post("/login").send(user).expect(200);
 
   return login.body.token;
 };
@@ -45,7 +45,7 @@ beforeEach(async () => {
 describe("When there are some initial blogs saved", () => {
   test("they are returned as json", async () => {
     await api
-      .get("/api/blogs")
+      .get("/blogs")
       .expect(200)
       .expect("Content-Type", /application\/json/);
   }, 100000);
@@ -84,7 +84,7 @@ describe("When there are some initial blogs saved", () => {
 
 describe("Adding a new blog", () => {
   test("will fail with status code 401 if token is not provided", async () => {
-    await api.post("/api/blogs").expect(401);
+    await api.post("/blogs").expect(401);
 
     const blogsAfterPost = await helper.blogsInDb();
     expect(blogsAfterPost).toHaveLength(helper.initialBlogs.length);
@@ -101,7 +101,7 @@ describe("Adding a new blog", () => {
     };
 
     const returnedBlog = await api
-      .post("/api/blogs")
+      .post("/blogs")
       .send(newBlog)
       .set("Authorization", `bearer ${token}`)
       .expect(201)
@@ -126,7 +126,7 @@ describe("Adding a new blog", () => {
     };
 
     await api
-      .post("/api/blogs")
+      .post("/blogs")
       .send(newBlog)
       .set("Authorization", `bearer ${token}`)
       .expect(201)
@@ -149,7 +149,7 @@ describe("Adding a new blog", () => {
     };
 
     await api
-      .post("/api/blogs")
+      .post("/blogs")
       .send(newBlog)
       .set("Authorization", `bearer ${token}`)
       .expect(201)
@@ -172,7 +172,7 @@ describe("Adding a new blog", () => {
     };
 
     await api
-      .post("/api/blogs")
+      .post("/blogs")
       .send(newBlog)
       .set("Authorization", `bearer ${token}`)
       .expect(400);
@@ -189,7 +189,7 @@ describe("Viewing a specific blog", () => {
     const blogToView = startingBlogs[0];
 
     const resultBlog = await api
-      .get(`/api/blogs/${blogToView.id}`)
+      .get(`/blogs/${blogToView.id}`)
       .expect(200)
       .expect("Content-Type", /application\/json/);
 
@@ -201,13 +201,13 @@ describe("Viewing a specific blog", () => {
   test("fails with status code 404 if blog does not exist", async () => {
     const fakeId = await helper.invalidId();
 
-    await api.get(`/api/blogs/${fakeId}`).expect(404);
+    await api.get(`/blogs/${fakeId}`).expect(404);
   }, 100000);
 
   test("fails with status code 400 if id is invalid", async () => {
     const invalidId = "798l098dg939l0913os9234";
 
-    await api.get(`/api/blogs/${invalidId}`).expect(400);
+    await api.get(`/blogs/${invalidId}`).expect(400);
   }, 100000);
 });
 
@@ -219,7 +219,7 @@ describe("Deleting a single blog", () => {
     const token = await loginAsUser();
 
     await api
-      .delete(`/api/blogs/${blogToDelete.id}`)
+      .delete(`/blogs/${blogToDelete.id}`)
       .set("Authorization", `bearer ${token}`)
       .expect(204);
 
@@ -241,7 +241,7 @@ describe("Deleting a single blog", () => {
     const token = await loginAsUser(username, password);
 
     await api
-      .delete(`/api/blogs/${blogToDelete.id}`)
+      .delete(`/blogs/${blogToDelete.id}`)
       .set("Authorization", `bearer ${token}`)
       .expect(401);
 
@@ -255,7 +255,7 @@ describe("Deleting a single blog", () => {
     const token = await loginAsUser();
 
     await api
-      .delete(`/api/blogs/${fakeId}`)
+      .delete(`/blogs/${fakeId}`)
       .set("Authorization", `bearer ${token}`)
       .expect(404);
 
@@ -272,7 +272,7 @@ describe("Updating a blog", () => {
     const newBlog = { ...oldBlog, likes: oldBlog.likes + 50 };
 
     await api
-      .put(`/api/blogs/${oldBlog.id}`)
+      .put(`/blogs/${oldBlog.id}`)
       .send(newBlog)
       .expect(200)
       .expect("Content-Type", /application\/json/);
@@ -295,7 +295,7 @@ describe("Updating a blog", () => {
     const newBlog = { ...oldBlog, title: "A new title" };
 
     await api
-      .put(`/api/blogs/${oldBlog.id}`)
+      .put(`/blogs/${oldBlog.id}`)
       .send(newBlog)
       .expect(200)
       .expect("Content-Type", /application\/json/);
@@ -318,7 +318,7 @@ describe("Updating a blog", () => {
     const newBlog = { ...oldBlog, author: "A new author" };
 
     await api
-      .put(`/api/blogs/${oldBlog.id}`)
+      .put(`/blogs/${oldBlog.id}`)
       .send(newBlog)
       .expect(200)
       .expect("Content-Type", /application\/json/);
@@ -341,7 +341,7 @@ describe("Updating a blog", () => {
     const newBlog = { ...oldBlog, url: "newurl.com" };
 
     await api
-      .put(`/api/blogs/${oldBlog.id}`)
+      .put(`/blogs/${oldBlog.id}`)
       .send(newBlog)
       .expect(200)
       .expect("Content-Type", /application\/json/);
@@ -361,7 +361,7 @@ describe("Updating a blog", () => {
     const startingBlogs = await helper.blogsInDb();
     const fakeId = await helper.invalidId();
 
-    await api.put(`/api/blogs/${fakeId}`).expect(404);
+    await api.put(`/blogs/${fakeId}`).expect(404);
 
     const blogsAfterUpdate = await helper.blogsInDb();
     expect(blogsAfterUpdate).toEqual(startingBlogs);
@@ -373,7 +373,7 @@ describe("Updating a blog", () => {
 
     const newBlog = { author: "some dude", likes: 99 };
 
-    await api.put(`/api/blogs/${oldBlog.id}`).send(newBlog).expect(400);
+    await api.put(`/blogs/${oldBlog.id}`).send(newBlog).expect(400);
 
     const blogsAfterUpdate = await helper.blogsInDb();
 

@@ -32,7 +32,7 @@ it("reset endpoint should reset db", async () => {
   const usersAtStart = await User.find({});
   expect(usersAtStart).toHaveLength(1);
 
-  await api.post("/api/testing/reset").expect(204);
+  await api.post("/testing/reset").expect(204);
 
   const blogsNow = await Blog.find({});
   expect(blogsNow).toHaveLength(0);

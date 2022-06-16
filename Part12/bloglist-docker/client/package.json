@@ -21,8 +21,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "BROWSER=none node_modules/react-scripts/bin/react-scripts.js start",
-    "dev": "BROWSER=none react-scripts start",
+    "start": "BROWSER=none REACT_APP_PROD=true node_modules/react-scripts/bin/react-scripts.js start",
+    "dev": "BROWSER=none REACT_APP_PROD=false node_modules/react-scripts/bin/react-scripts.js start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "tall": "CI=true npm test",

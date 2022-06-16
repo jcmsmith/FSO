@@ -1,5 +1,5 @@
-import axios from "axios";
-const url = `api/blogs`;
+import axios from "../util/apiClient";
+const url = `/blogs`;
 
 let token = null;
 
@@ -26,11 +26,7 @@ export const update = async (newObject) => {
     headers: { Authorization: token },
   };
 
-  const response = await axios.put(
-    `${url}/${newObject.id}`,
-    newObject,
-    config
-  );
+  const response = await axios.put(`${url}/${newObject.id}`, newObject, config);
   return response.data;
 };
 

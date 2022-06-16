@@ -1,5 +1,5 @@
 import axios from "../util/apiClient";
-const baseUrl = "api/users";
+const baseUrl = "/users";
 
 export const getAll = async () => {
   const response = await axios.get(baseUrl);
