@@ -26,3 +26,6 @@ yarn-error.log*
 **/.expo/web/cache
 **/cypress/videos
 **/cypress/screenshots
+
+.vscode
+**/.vscode
