@@ -20,6 +20,6 @@ This project taught me about buttons, event handlers, HTML tables, state managem
 
 The concepts from the material and previous exercises put together into a page that allows for voting on anecdotes, and displays the most popular anecdote along with an "anecdote of the day".
 
-## Total hours:
+## Total hours: 10
 
 [Return to root](https://github.com/jcmsmith/Full-Stack-open)

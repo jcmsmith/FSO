@@ -20,6 +20,6 @@
 - Created a diagram depicting the situation where the user creates a new note using the single page version of the app
   ![UML diagram 3](<https://raw.githubusercontent.com/jcmsmith/Full-Stack-open/main/part0/0.6%20New%20Note%20(SPA).png>)
 
-## Total hours: 2
+## Total hours: 3
 
 [Return to root](https://github.com/jcmsmith/Full-Stack-open)

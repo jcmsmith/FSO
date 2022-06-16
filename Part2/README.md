@@ -21,6 +21,6 @@ A little app that can be used to input names and numbers and temporarily store t
 
 A challenging (at the time!) project which served as an introduction to getting data from 3rd-party APIs. The user can enter text into a filter box to search for countries. When the filter matches only a few countries, it will display those countries in a list, alongside a button to give more detail about the chosen country. When the show details button is selected or the filter matches only one country, it will display some data about that country, along with current weather and an icon representing such.
 
-## Total hours:
+## Total hours: 22
 
 [Return to root](https://github.com/jcmsmith/Full-Stack-open)

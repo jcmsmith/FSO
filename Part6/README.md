@@ -1,6 +1,6 @@
 # Part 6 - State management with Redux
 
-This part took a while to wrap my brain around!
+This part was complicated, and I managed to smash through it quite quickly!
 
 ## Core Concepts
 
@@ -19,6 +19,6 @@ A simplified version of the [Unicafe project](https://github.com/jcmsmith/Full-S
 
 A modified version of the [Anecdotes app](https://github.com/jcmsmith/Full-Stack-open/tree/main/part1/anecdotes) from part 1, also using Redux for state managment but with a more complex configuration.
 
-## Total hours:
+## Total hours: 12
 
 [Return to root](https://github.com/jcmsmith/Full-Stack-open)

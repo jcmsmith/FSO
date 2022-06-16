@@ -15,6 +15,6 @@ In this part we created a backend for the [Phonebook app](https://github.com/jcm
 
 http://nameless-oasis-59400.herokuapp.com/
 
-## Total hours:
+## Total hours: 17
 
 [Return to root](https://github.com/jcmsmith/Full-Stack-open)

@@ -11,6 +11,6 @@
 
 A frontend for the backend created in the [previous part](https://github.com/jcmsmith/Full-Stack-open/tree/main/Part4), allowing the user to login, upon which they can vote for blogs from the list and add new ones.
 
-## Total hours:
+## Total hours: 21
 
 [Return to root](https://github.com/jcmsmith/Full-Stack-open)
