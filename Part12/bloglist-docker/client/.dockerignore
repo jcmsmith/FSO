@@ -1,0 +1,14 @@
+.gitignore
+.dockerignore
+
+src/tests
+cypress/videos
+cypress/screenshots
+
+.env
+.env.ci
+.env.production
+
+README.md
+
+node_modules

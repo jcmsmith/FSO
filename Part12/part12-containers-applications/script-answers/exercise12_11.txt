@@ -1,0 +1,142 @@
+Script started on 2022-06-04 01:56:31-07:00 [TERM="xterm-256color" TTY="/dev/pts/2" COLUMNS="95" LINES="23"]
+]0;jcmsmith@LAPTOP-ARU65GDO: ~[01;32mjcmsmith@LAPTOP-ARU65GDO[00m:[01;34m~[00m$ docker container ls -a
+CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS                      PORTS                     NAMES
+d989370ff362   redis            "docker-entrypoint.s…"   25 minutes ago   Up 25 minutes               0.0.0.0:6378->6379/tcp    todo-backend-redis-1
+387403dbcd63   mongo            "docker-entrypoint.s…"   27 minutes ago   Up 25 minutes               0.0.0.0:3456->27017/tcp   todo-backend-mongo-1
+b0544b180649   nginx            "/docker-entrypoint.…"   52 minutes ago   Up 52 minutes               0.0.0.0:8080->80/tcp      crazy_robinson
+3e4feec905e1   express-server   "docker-entrypoint.s…"   28 hours ago     Exited (137) 28 hours ago                             todo-backend-app-1
+3b00994ecde3   express-server   "docker-entrypoint.s…"   29 hours ago     Exited (137) 29 hours ago                             determined_cori
+f29cfe433a4e   e7ddadcecb56     "docker-entrypoint.s…"   29 hours ago     Exited (1) 29 hours ago                               affectionate_kowalevski
+b9705249a177   ed42d6ded304     "docker-entrypoint.s…"   30 hours ago     Exited (137) 30 hours ago                             happy_bartik
+6e0684cff256   220b5d995865     "docker-entrypoint.s…"   30 hours ago     Exited (137) 30 hours ago                             reverent_varahamihira
+1c0e82e272dd   fs-hello-world   "docker-entrypoint.s…"   30 hours ago     Exited (0) 30 hours ago                               magical_lamarr
+10c075b4cf99   node:16          "docker-entrypoint.s…"   32 hours ago     Exited (129) 30 hours ago                             hello-node
+]0;jcmsmith@LAPTOP-ARU65GDO: ~[01;32mjcmsmith@LAPTOP-ARU65GDO[00m:[01;34m~[00m$ docker exec [K]0;jcmsmith@LAPTOP-ARU65GDO: ~[01;32mjcmsmith@LAPTOP-ARU65GDO[00m:[01;34m~[00m$ docker exec d989
+"docker exec" requires at least 2 arguments.
+See 'docker exec --help'.
+
+Usage:  docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+
+Run a command in a running container
+]0;jcmsmith@LAPTOP-ARU65GDO: ~[01;32mjcmsmith@LAPTOP-ARU65GDO[00m:[01;34m~[00m$ docker exec d989 bash
+]0;jcmsmith@LAPTOP-ARU65GDO: ~[01;32mjcmsmith@LAPTOP-ARU65GDO[00m:[01;34m~[00m$ redis-cli
+
+Command 'redis-cli' not found, but can be installed with:
+
+sudo apt install redis-tools
+
+]0;jcmsmith@LAPTOP-ARU65GDO: ~[01;32mjcmsmith@LAPTOP-ARU65GDO[00m:[01;34m~[00m$ d[Kredis-cli KEYS *
+
+Command 'redis-cli' not found, but can be installed with:
+
+sudo apt install redis-tools
+
+]0;jcmsmith@LAPTOP-ARU65GDO: ~[01;32mjcmsmith@LAPTOP-ARU65GDO[00m:[01;34m~[00m$ syd[K[Kudo apt install redis-tools
+[sudo] password for jcmsmith: 
+Reading package lists... 0%Reading package lists... 100%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree       
+Reading state information... 0%Reading state information... 0%Reading state information... Done
+The following package was automatically installed and is no longer required:
+  libfwupdplugin1
+Use 'sudo apt autoremove' to remove it.
+The following additional packages will be installed:
+  libatomic1 libhiredis0.14 libjemalloc2 liblua5.1-0 lua-bitop lua-cjson
+Suggested packages:
+  ruby-redis
+The following NEW packages will be installed:
+  libatomic1 libhiredis0.14 libjemalloc2 liblua5.1-0 lua-bitop lua-cjson redis-tools
+0 upgraded, 7 newly installed, 0 to remove and 0 not upgraded.
+Need to get 887 kB of archives.
+After this operation, 3955 kB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+[33m0% [Working][0m            Get:1 http://archive.ubuntu.com/ubuntu focal-updates/main amd64 libatomic1 amd64 10.3.0-1ubuntu1~20.04 [9284 B]
+[33m1% [1 libatomic1 9284 B/9284 B 100%][0m[33m                                    4% [Working][0m            Get:2 http://archive.ubuntu.com/ubuntu focal/universe amd64 libhiredis0.14 amd64 0.14.0-6 [30.2 kB]
+[33m4% [2 libhiredis0.14 5511 B/30.2 kB 18%][0m[33m                                        9% [Waiting for headers][0m                        Get:3 http://archive.ubuntu.com/ubuntu focal/universe amd64 libjemalloc2 amd64 5.2.1-1ubuntu1 [235 kB]
+[33m10% [3 libjemalloc2 5416 B/235 kB 2%][0m[33m                                     33% [Waiting for headers][0m                         Get:4 http://archive.ubuntu.com/ubuntu focal/universe amd64 liblua5.1-0 amd64 5.1.5-8.1build4 [99.9 kB]
+[33m34% [4 liblua5.1-0 3342 B/99.9 kB 3%][0m[33m                                     45% [Waiting for headers][0m                         Get:5 http://archive.ubuntu.com/ubuntu focal/universe amd64 lua-bitop amd64 1.0.2-5 [6680 B]
+[33m46% [5 lua-bitop 6680 B/6680 B 100%][0m[33m                                    49% [Waiting for headers][0m                         Get:6 http://archive.ubuntu.com/ubuntu focal/universe amd64 lua-cjson amd64 2.1.0+dfsg-2.1 [17.4 kB]
+[33m49% [6 lua-cjson 457 B/17.4 kB 3%][0m[33m                                  53% [Waiting for headers][0m                         Get:7 http://archive.ubuntu.com/ubuntu focal-updates/universe amd64 redis-tools amd64 5:5.0.7-2ubuntu0.1 [489 kB]
+[33m53% [7 redis-tools 114 B/489 kB 0%][0m[33m                                   100% [Working][0m              Fetched 887 kB in 1s (980 kB/s)
+
+7[0;62r8[1ASelecting previously unselected package libatomic1:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 32532 files and directories currently installed.)
+Preparing to unpack .../0-libatomic1_10.3.0-1ubuntu1~20.04_amd64.deb ...
+7[63;0f[42m[30mProgress: [  0%][49m[39m [.......................................................................................................................................................................................................................] 87[63;0f[42m[30mProgress: [  3%][49m[39m [#######................................................................................................................................................................................................................] 8Unpacking libatomic1:amd64 (10.3.0-1ubuntu1~20.04) ...
+7[63;0f[42m[30mProgress: [  7%][49m[39m [##############.........................................................................................................................................................................................................] 8Selecting previously unselected package libhiredis0.14:amd64.
+Preparing to unpack .../1-libhiredis0.14_0.14.0-6_amd64.deb ...
+7[63;0f[42m[30mProgress: [ 10%][49m[39m [######################.................................................................................................................................................................................................] 8Unpacking libhiredis0.14:amd64 (0.14.0-6) ...
+7[63;0f[42m[30mProgress: [ 14%][49m[39m [#############################..........................................................................................................................................................................................] 8Selecting previously unselected package libjemalloc2:amd64.
+Preparing to unpack .../2-libjemalloc2_5.2.1-1ubuntu1_amd64.deb ...
+7[63;0f[42m[30mProgress: [ 17%][49m[39m [#####################################..................................................................................................................................................................................] 8Unpacking libjemalloc2:amd64 (5.2.1-1ubuntu1) ...
+7[63;0f[42m[30mProgress: [ 21%][49m[39m [############################################...........................................................................................................................................................................] 8Selecting previously unselected package liblua5.1-0:amd64.
+Preparing to unpack .../3-liblua5.1-0_5.1.5-8.1build4_amd64.deb ...
+7[63;0f[42m[30mProgress: [ 24%][49m[39m [###################################################....................................................................................................................................................................] 8Unpacking liblua5.1-0:amd64 (5.1.5-8.1build4) ...
+7[63;0f[42m[30mProgress: [ 28%][49m[39m [###########################################################............................................................................................................................................................] 8Selecting previously unselected package lua-bitop:amd64.
+Preparing to unpack .../4-lua-bitop_1.0.2-5_amd64.deb ...
+7[63;0f[42m[30mProgress: [ 31%][49m[39m [##################################################################.....................................................................................................................................................] 8Unpacking lua-bitop:amd64 (1.0.2-5) ...
+7[63;0f[42m[30mProgress: [ 34%][49m[39m [##########################################################################.............................................................................................................................................] 8Selecting previously unselected package lua-cjson:amd64.
+Preparing to unpack .../5-lua-cjson_2.1.0+dfsg-2.1_amd64.deb ...
+7[63;0f[42m[30mProgress: [ 38%][49m[39m [#################################################################################......................................................................................................................................] 8Unpacking lua-cjson:amd64 (2.1.0+dfsg-2.1) ...
+7[63;0f[42m[30mProgress: [ 41%][49m[39m [########################################################################################...............................................................................................................................] 8Selecting previously unselected package redis-tools.
+Preparing to unpack .../6-redis-tools_5%3a5.0.7-2ubuntu0.1_amd64.deb ...
+7[63;0f[42m[30mProgress: [ 45%][49m[39m [################################################################################################.......................................................................................................................] 8Unpacking redis-tools (5:5.0.7-2ubuntu0.1) ...
+7[63;0f[42m[30mProgress: [ 48%][49m[39m [#######################################################################################################................................................................................................................] 8Setting up libjemalloc2:amd64 (5.2.1-1ubuntu1) ...
+7[63;0f[42m[30mProgress: [ 52%][49m[39m [###############################################################################################################........................................................................................................] 87[63;0f[42m[30mProgress: [ 55%][49m[39m [######################################################################################################################.................................................................................................] 8Setting up lua-cjson:amd64 (2.1.0+dfsg-2.1) ...
+7[63;0f[42m[30mProgress: [ 59%][49m[39m [##############################################################################################################################.........................................................................................] 87[63;0f[42m[30mProgress: [ 62%][49m[39m [#####################################################################################################################################..................................................................................] 8Setting up libatomic1:amd64 (10.3.0-1ubuntu1~20.04) ...
+7[63;0f[42m[30mProgress: [ 66%][49m[39m [############################################################################################################################################...........................................................................] 87[63;0f[42m[30mProgress: [ 69%][49m[39m [####################################################################################################################################################...................................................................] 8Setting up lua-bitop:amd64 (1.0.2-5) ...
+7[63;0f[42m[30mProgress: [ 72%][49m[39m [###########################################################################################################################################################............................................................] 87[63;0f[42m[30mProgress: [ 76%][49m[39m [###################################################################################################################################################################....................................................] 8Setting up liblua5.1-0:amd64 (5.1.5-8.1build4) ...
+7[63;0f[42m[30mProgress: [ 79%][49m[39m [##########################################################################################################################################################################.............................................] 87[63;0f[42m[30mProgress: [ 83%][49m[39m [#################################################################################################################################################################################......................................] 8Setting up libhiredis0.14:amd64 (0.14.0-6) ...
+7[63;0f[42m[30mProgress: [ 86%][49m[39m [#########################################################################################################################################################################################..............................] 87[63;0f[42m[30mProgress: [ 90%][49m[39m [################################################################################################################################################################################################.......................] 8Setting up redis-tools (5:5.0.7-2ubuntu0.1) ...
+7[63;0f[42m[30mProgress: [ 93%][49m[39m [########################################################################################################################################################################################################...............] 87[63;0f[42m[30mProgress: [ 97%][49m[39m [###############################################################################################################################################################################################################........] 8Processing triggers for man-db (2.9.1-1) ...
+Processing triggers for libc-bin (2.31-0ubuntu9.9) ...
+/sbin/ldconfig.real: /usr/lib/wsl/lib/libcuda.so.1 is not a symbolic link
+
+
+7[0;63r8[1A[J]0;jcmsmith@LAPTOP-ARU65GDO: ~[01;32mjcmsmith@LAPTOP-ARU65GDO[00m:[01;34m~[00m$ redis-cli KEYS *
+Could not connect to Redis at 127.0.0.1:6379: Connection refused
+]0;jcmsmith@LAPTOP-ARU65GDO: ~[01;32mjcmsmith@LAPTOP-ARU65GDO[00m:[01;34m~[00m$ redis-cli -p 6378 KEYS *
+(error) ERR wrong number of arguments for 'keys' command
+]0;jcmsmith@LAPTOP-ARU65GDO: ~[01;32mjcmsmith@LAPTOP-ARU65GDO[00m:[01;34m~[00m$ redis-cli -p 6378 KEYS *[K[K
+(error) ERR wrong number of arguments for 'keys' command
+]0;jcmsmith@LAPTOP-ARU65GDO: ~[01;32mjcmsmith@LAPTOP-ARU65GDO[00m:[01;34m~[00m$ redis-cli -p 6378 KEYS[K[K[K[K[K
+127.0.0.1:6378> [0K127.0.0.1:6378> K[17C[0K127.0.0.1:6378> KE[18C[0K127.0.0.1:6378> KEY[19C[0K127.0.0.1:6378> KEYS[0;90;49m pattern[0m[20C[0K127.0.0.1:6378> KEYS [0;90;49mpattern[0m[21C[0K127.0.0.1:6378> KEYS *[0;90;49m [0m[22C[0K127.0.0.1:6378> KEYS *[22C
+1) "count"
+127.0.0.1:6378> [0K127.0.0.1:6378> G[17C[0K127.0.0.1:6378> GE[18C[0K127.0.0.1:6378> GET[0;90;49m key[0m[19C[0K127.0.0.1:6378> GET [0;90;49mkey[0m[20C[0K127.0.0.1:6378> GET c[0;90;49m [0m[21C[0K127.0.0.1:6378> GET ci[0;90;49m [0m[22C[0K127.0.0.1:6378> GET ciy[0;90;49m [0m[23C[0K127.0.0.1:6378> GET ciyb[0;90;49m [0m[24C[0K127.0.0.1:6378> GET ciybt[0;90;49m [0m[25C[0K127.0.0.1:6378> GET ciyb[0;90;49m [0m[24C[0K127.0.0.1:6378> GET ciy[0;90;49m [0m[23C[0K127.0.0.1:6378> GET ci[0;90;49m [0m[22C[0K127.0.0.1:6378> GET c[0;90;49m [0m[21C[0K127.0.0.1:6378> GET co[0;90;49m [0m[22C[0K127.0.0.1:6378> GET cou[0;90;49m [0m[23C[0K127.0.0.1:6378> GET coun[0;90;49m [0m[24C[0K127.0.0.1:6378> GET count[0;90;49m [0m[25C[0K127.0.0.1:6378> GET count[25C
+"0"
+127.0.0.1:6378> [0K127.0.0.1:6378> I[17C[0K127.0.0.1:6378> IN[18C[0K127.0.0.1:6378> INC[19C[0K127.0.0.1:6378> INCR[0;90;49m key[0m[20C[0K127.0.0.1:6378> INCRB[21C[0K127.0.0.1:6378> INCRBY[0;90;49m key increment[0m[22C[0K127.0.0.1:6378> INCRBY [0;90;49mkey increment[0m[23C[0K127.0.0.1:6378> INCRBY c[0;90;49m increment[0m[24C[0K127.0.0.1:6378> INCRBY co[0;90;49m increment[0m[25C[0K127.0.0.1:6378> INCRBY cou[0;90;49m increment[0m[26C[0K127.0.0.1:6378> INCRBY coun[0;90;49m increment[0m[27C[0K127.0.0.1:6378> INCRBY count[0;90;49m increment[0m[28C[0K127.0.0.1:6378> INCRBY count [0;90;49mincrement[0m[29C[0K127.0.0.1:6378> INCRBY count 9[0;90;49m [0m[30C[0K127.0.0.1:6378> INCRBY count 90[0;90;49m [0m[31C[0K127.0.0.1:6378> INCRBY count 900[0;90;49m [0m[32C[0K127.0.0.1:6378> INCRBY count 9001[0;90;49m [0m[33C[0K127.0.0.1:6378> INCRBY count 9001[33C
+(integer) 9001
+127.0.0.1:6378> [0K127.0.0.1:6378> G[17C[0K127.0.0.1:6378> GE[18C[0K127.0.0.1:6378> GET[0;90;49m key[0m[19C[0K127.0.0.1:6378> GET [0;90;49mkey[0m[20C[0K127.0.0.1:6378> GET c[0;90;49m [0m[21C[0K127.0.0.1:6378> GET co[0;90;49m [0m[22C[0K127.0.0.1:6378> GET cou[0;90;49m [0m[23C[0K127.0.0.1:6378> GET coun[0;90;49m [0m[24C[0K127.0.0.1:6378> GET count[0;90;49m [0m[25C[0K127.0.0.1:6378> GET count[25C
+"9002"
+127.0.0.1:6378> [0K127.0.0.1:6378> D[17C[0K127.0.0.1:6378> DE[18C[0K127.0.0.1:6378> DEL[0;90;49m key [key ...][0m[19C[0K127.0.0.1:6378> DEL [0;90;49mkey [key ...][0m[20C[0K127.0.0.1:6378> DEL c[0;90;49m [key ...][0m[21C[0K127.0.0.1:6378> DEL co[0;90;49m [key ...][0m[22C[0K127.0.0.1:6378> DEL cou[0;90;49m [key ...][0m[23C[0K127.0.0.1:6378> DEL coun[0;90;49m [key ...][0m[24C[0K127.0.0.1:6378> DEL count[0;90;49m [key ...][0m[25C[0K127.0.0.1:6378> DEL count[25C
+(integer) 1
+127.0.0.1:6378> [0K127.0.0.1:6378> G[17C[0K127.0.0.1:6378> GE[18C[0K127.0.0.1:6378> GET[0;90;49m key[0m[19C[0K127.0.0.1:6378> GET [0;90;49mkey[0m[20C[0K127.0.0.1:6378> GET c[0;90;49m [0m[21C[0K127.0.0.1:6378> GET co[0;90;49m [0m[22C[0K127.0.0.1:6378> GET cou[0;90;49m [0m[23C[0K127.0.0.1:6378> GET coun[0;90;49m [0m[24C[0K127.0.0.1:6378> GET count[0;90;49m [0m[25C[0K127.0.0.1:6378> GET count[25C
+(nil)
+127.0.0.1:6378> [0K127.0.0.1:6378> GET count[0;90;49m [0m[25C[0K127.0.0.1:6378> GET count[25C
+"NaN"
+127.0.0.1:6378> [0K127.0.0.1:6378> K[17C[0K127.0.0.1:6378> KE[18C[0K127.0.0.1:6378> KEY[19C[0K127.0.0.1:6378> KEYS[0;90;49m pattern[0m[20C[0K127.0.0.1:6378> KEYS [0;90;49mpattern[0m[21C[0K127.0.0.1:6378> KEYS *[0;90;49m [0m[22C[0K127.0.0.1:6378> KEYS *[22C
+1) "count"
+127.0.0.1:6378> [0K127.0.0.1:6378> KEYS *[0;90;49m [0m[22C[0K127.0.0.1:6378> GET count[0;90;49m [0m[25C[0K127.0.0.1:6378> GET count[25C
+"NaN"
+127.0.0.1:6378> [0K127.0.0.1:6378> GET count[0;90;49m [0m[25C[0K127.0.0.1:6378> GET count[25C
+"0"
+127.0.0.1:6378> [0K127.0.0.1:6378> GET count[0;90;49m [0m[25C[0K127.0.0.1:6378> GET count[25C
+"7"
+127.0.0.1:6378> [0K127.0.0.1:6378> GET count[0;90;49m [0m[25C[0K127.0.0.1:6378> KEYS *[0;90;49m [0m[22C[0K127.0.0.1:6378> GET count[0;90;49m [0m[25C[0K127.0.0.1:6378> DEL count[0;90;49m [key ...][0m[25C[0K127.0.0.1:6378> DEL count[25C
+(integer) 1
+127.0.0.1:6378> [0K127.0.0.1:6378> DEL count[0;90;49m [key ...][0m[25C[0K127.0.0.1:6378> GET count[0;90;49m [0m[25C[0K127.0.0.1:6378> GET count[25C
+(nil)
+127.0.0.1:6378> [0K127.0.0.1:6378> GET count[0;90;49m [0m[25C[0K127.0.0.1:6378> GET count[25C
+"NaN"
+127.0.0.1:6378> [0K127.0.0.1:6378> GET count[0;90;49m [0m[25C[0K127.0.0.1:6378> DEL count[0;90;49m [key ...][0m[25C[0K127.0.0.1:6378> DEL count[25C
+(integer) 1
+127.0.0.1:6378> [0K127.0.0.1:6378> DEL count[0;90;49m [key ...][0m[25C[0K127.0.0.1:6378> DEL count[25C
+(integer) 1
+127.0.0.1:6378> [0K127.0.0.1:6378> DEL count[0;90;49m [key ...][0m[25C[0K127.0.0.1:6378> GET count[0;90;49m [0m[25C[0K127.0.0.1:6378> GET count[25C
+(nil)
+127.0.0.1:6378> [0K127.0.0.1:6378> GET count[0;90;49m [0m[25C[0K127.0.0.1:6378> GET count[25C
+"3"
+127.0.0.1:6378> [0K127.0.0.1:6378> e[17C[0K127.0.0.1:6378> ex[18C[0K127.0.0.1:6378> exi[19C[0K127.0.0.1:6378> exit[20C[0K127.0.0.1:6378> exit[20C
+]0;jcmsmith@LAPTOP-ARU65GDO: ~[01;32mjcmsmith@LAPTOP-ARU65GDO[00m:[01;34m~[00m$ exit
+exit
+
+Script done on 2022-06-04 02:38:23-07:00 [COMMAND_EXIT_CODE="0"]
