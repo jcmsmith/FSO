@@ -17,4 +17,4 @@ This repository contains all of my submissions for the Full Stack Open course.
 12. [Containers](https://github.com/jcmsmith/Full-Stack-open/tree/main/part12)
 13. Unfinished
 
-# Total hours: Many
+## Total hours: 288
