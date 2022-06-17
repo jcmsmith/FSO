@@ -17,4 +17,4 @@ My submissions for the Full Stack Open course:
 - [Containers](https://jcmsmith.github.io/Full-Stack-open/part12.html)
 - Unfinished
 
-## Total hours: Many
+## Total hours: 288
