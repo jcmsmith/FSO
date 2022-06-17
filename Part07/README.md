@@ -26,6 +26,6 @@ From a [starting point](https://github.com/fullstack-hy2020/ultimate-hooks), we 
 
 The first version of the Bloglist app in which both parts are in one project, with the frontend completely redesigned to use Redux and React Router. We now have multiple different views, blog comments, a navigation toolbar, and styles using Material UI!
 
-## Total hours:
+## Total hours: 25
 
 [Return to root](https://github.com/jcmsmith/Full-Stack-open)

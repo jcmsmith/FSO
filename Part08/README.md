@@ -9,6 +9,6 @@
 
 ## Projects
 
-## Total hours:
+## Total hours: 24
 
 [Return to root](https://github.com/jcmsmith/Full-Stack-open)

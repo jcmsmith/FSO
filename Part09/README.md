@@ -12,10 +12,6 @@ I'll be honest, I was initially excited to try it but this part didn't end up le
 
 ## Projects
 
-In this part we . I learned about
-
-http://nameless-oasis-59400.herokuapp.com/
-
-## Total hours:
+## Total hours: 27
 
 [Return to root](https://github.com/jcmsmith/Full-Stack-open)
