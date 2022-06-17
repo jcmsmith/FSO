@@ -12,6 +12,6 @@ I'll be honest, I was initially excited to try it but this part didn't end up le
 
 ## Projects
 
-## Total hours:
+## Total hours: 27
 
 [Home](https://github.com/jcmsmith/Full-Stack-open)
