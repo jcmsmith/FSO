@@ -12,6 +12,6 @@
 
 ## Projects
 
-## Total hours:
+## Total hours: 41
 
 [Home](https://github.com/jcmsmith/Full-Stack-open)
