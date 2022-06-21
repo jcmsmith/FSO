@@ -1,7 +1,8 @@
 const express = require("express");
+require("express-async-errors");
+
 const { PORT } = require("./util/config");
 const { connectToDatabase } = require("./util/db");
-
 const blogsRouter = require("./controllers/blogs");
 
 const app = express();
