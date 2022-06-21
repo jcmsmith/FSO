@@ -1,13 +1,6 @@
-const { Model, Sequelize, DataTypes } = require("sequelize");
+const { Model, DataTypes } = require("sequelize");
 
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
-  dialectOptions: {
-    ssl: {
-      require: true,
-      rejectUnauthorized: false,
-    },
-  },
-});
+const { sequelize } = require("../util/db");
 
 class Blog extends Model {}
 

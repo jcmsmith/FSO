@@ -1,28 +1,18 @@
-# Part 12 - Containers
+# Part 13 - Using relational databases
 
 ---
 
 ## Core Concepts
 
-- Docker Hub
-- Docker images and containers
-- Docker commands such as exec, compose, etc
-- Bind Mounts and Volumes
-- Communication between containers
-- Production and development environments in containers
-- Multi-stage builds
-- NGinx, serving files, and reverse-proxying
-- Busybox
-- Redis
-- WSL
-
----
+- Relational vs document databases
+- PostgreSQL
+-
 
 ## Projects
 
 ---
 
-## Total hours: 35
+## Total hours:
 
 ---
 
