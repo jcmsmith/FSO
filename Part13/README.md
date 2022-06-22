@@ -5,9 +5,14 @@
 ## Core Concepts
 
 - Relational vs document databases
-- PostgreSQL
 - SQL Queries
 - Database Migrations
+
+## Libraries/Tools
+
+- PostgreSQL
+- Sequelize
+- Umzug
 
 ## Projects
 
