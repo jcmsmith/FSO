@@ -56,7 +56,7 @@ Authorization: bearer
 
 ### Update with valid body
 
-PUT http://localhost:3001/api/blogs/2
+PUT http://localhost:3001/api/blogs/8
 Content-Type: application/json
 
 {
