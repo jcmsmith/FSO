@@ -1,30 +1,36 @@
 const router = require("express").Router();
 
-const { Blog } = require("../models/");
-
-const blogFinder = async (req, res, next) => {
-  req.blog = await Blog.findByPk(req.params.id);
-  next();
-};
+const { tokenExtractor, blogFinder } = require("../util/middleware");
+const { Blog, User } = require("../models/");
 
 router.get("/", async (req, res) => {
-  const blogs = await Blog.findAll();
-  console.log("blogs", JSON.stringify(blogs, null, 2));
+  const blogs = await Blog.findAll({
+    attributes: { exclude: ["userId"] },
+    include: {
+      model: User,
+      attributes: ["name"],
+    },
+  });
+  //console.log("blogs", JSON.stringify(blogs, null, 2));
   res.json(blogs);
 });
 
-router.post("/", async (req, res) => {
+router.post("/", tokenExtractor, async (req, res) => {
   console.log("body", req.body);
   try {
-    const blog = await Blog.create(req.body);
+    const user = await User.findByPk(req.decodedToken.id);
+    const blog = await Blog.create({
+      ...req.body,
+      userId: user.id,
+    });
     res.json(blog);
   } catch (error) {
-    return res.status(400).json({ error });
+    res.status(400).json({ error });
   }
 });
 
 router.delete("/:id", blogFinder, async (req, res) => {
-  console.log("Deleting blog", req.blog.toJSON());
+  //console.log("Deleting blog", req.blog.toJSON());
 
   if (req.blog) {
     await req.blog.destroy();
