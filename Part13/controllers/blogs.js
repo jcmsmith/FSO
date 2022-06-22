@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const { tokenExtractor, blogFinder } = require("../util/middleware");
+const { userExtractor, blogFinder } = require("../util/middleware");
 const { Blog, User } = require("../models/");
 
 router.get("/", async (req, res) => {
@@ -15,29 +15,26 @@ router.get("/", async (req, res) => {
   res.json(blogs);
 });
 
-router.post("/", tokenExtractor, async (req, res) => {
+router.post("/", userExtractor, async (req, res) => {
   console.log("body", req.body);
 
-  const token = req.decodedToken;
-
-  if (token && token.id !== null) {
-    const user = await User.findByPk(token.id);
-    if (!user) {
-      throw new Error("User not found");
-    }
-
-    const blog = await Blog.create({
-      ...req.body,
-      userId: user.id,
-    });
-    res.json(blog);
-  } else {
+  if (req.user === null) {
     res.status(401).end();
   }
+
+  const blog = await Blog.create({
+    ...req.body,
+    userId: req.user.id,
+  });
+
+  res.json(blog);
 });
 
-router.delete("/:id", blogFinder, async (req, res) => {
-  //console.log("Deleting blog", req.blog.toJSON());
+router.delete("/:id", userExtractor, blogFinder, async (req, res) => {
+  if (req.user === null) {
+    res.status(401).end();
+    return;
+  }
 
   if (req.blog) {
     await req.blog.destroy();

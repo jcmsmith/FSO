@@ -3,15 +3,31 @@ const jwt = require("jsonwebtoken");
 const { SECRET } = require("./config");
 const { Blog, User } = require("../models/");
 
-const tokenExtractor = (req, res, next) => {
+const extractToken = (req) => {
   const authorization = req.get("authorization");
-  let token = null;
 
   if (authorization && authorization.toLowerCase().startsWith("bearer ")) {
-    token = jwt.verify(authorization.substring(7), SECRET);
+    return jwt.verify(authorization.substring(7), SECRET);
+  } else {
+    return null;
   }
+};
 
-  req.decodedToken = token;
+const tokenExtractor = (req, res, next) => {
+  req.decodedToken = extractToken(req);
+
+  next();
+};
+
+const userExtractor = async (req, res, next) => {
+  const token = extractToken(req);
+  const userId = token?.id;
+
+  if (userId) {
+    req.user = await User.findByPk(userId);
+  } else {
+    req.user = null;
+  }
 
   next();
 };
@@ -51,6 +67,7 @@ const generateSqlErrorMessage = (error) => {
 
 module.exports = {
   tokenExtractor,
+  userExtractor,
   blogFinder,
   errorHandler,
   generateSqlErrorMessage,
