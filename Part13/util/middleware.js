@@ -23,10 +23,14 @@ const userExtractor = async (req, res, next) => {
   const token = extractToken(req);
   const userId = token?.id;
 
+  req.user = null;
+
   if (userId) {
-    req.user = await User.findByPk(userId);
-  } else {
-    req.user = null;
+    try {
+      req.user = await User.findByPk(userId);
+    } catch (err) {
+      console.error("Error: userExtractor did not find matching user");
+    }
   }
 
   next();

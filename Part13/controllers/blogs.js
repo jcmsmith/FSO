@@ -42,7 +42,7 @@ router.post("/", userExtractor, async (req, res) => {
   console.log("body", req.body);
 
   if (req.user === null) {
-    res.status(401).end();
+    return res.status(401).end();
   }
 
   const blog = await Blog.create({
