@@ -17,15 +17,22 @@ router.get("/", async (req, res) => {
 
 router.post("/", tokenExtractor, async (req, res) => {
   console.log("body", req.body);
-  try {
-    const user = await User.findByPk(req.decodedToken.id);
+
+  const token = req.decodedToken;
+
+  if (token && token.id !== null) {
+    const user = await User.findByPk(token.id);
+    if (!user) {
+      throw new Error("User not found");
+    }
+
     const blog = await Blog.create({
       ...req.body,
       userId: user.id,
     });
     res.json(blog);
-  } catch (error) {
-    res.status(400).json({ error });
+  } else {
+    res.status(401).end();
   }
 });
 

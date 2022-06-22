@@ -4,7 +4,7 @@ POST http://localhost:3001/api/login
 Content-Type: application/json
 
 {
-    "username": "newtestadmin",
+    "username": "testadmin@admin.com",
     "name": "Myself",
     "password": "secret"
 }
@@ -38,7 +38,16 @@ Content-Type: application/json
 
 GET http://localhost:3001/api/users/1
 
-### Update username
+### Update username with valid username
+
+PUT http://localhost:3001/api/users/testadmin
+Content-Type: application/json
+
+{
+    "username": "newtestadmin@admin.com"
+}
+
+### Update username with invalid username
 
 PUT http://localhost:3001/api/users/testadmin
 Content-Type: application/json

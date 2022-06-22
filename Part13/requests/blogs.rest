@@ -14,7 +14,7 @@ Content-Type: application/json
 
 POST http://localhost:3001/api/blogs/
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld3Rlc3RhZG1pbiIsImlkIjoxLCJpYXQiOjE2NTU4NTYxOTR9.momB7Gz7d8TNO34ToSfixgBpdZQBjUvUMixJhtjuSOU
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RhZG1pbkBhZG1pbi5jb20iLCJpZCI6MywiaWF0IjoxNjU1ODYyMDA4fQ.WZkHoVEh7yi0G76Si2rJbRF3DsVuCd_QhqhcFkShNCM
 
 {
     "title": "TestBlog",
@@ -25,7 +25,7 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld
 
 POST http://localhost:3001/api/blogs/
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld3Rlc3RhZG1pbiIsImlkIjoxLCJpYXQiOjE2NTU4NTYxOTR9.momB7Gz7d8TNO34ToSfixgBpdZQBjUvUMixJhtjuSOU
+Authorization: bearer 
 
 {
     "author": "Bad boy who doesnt send required content"
@@ -33,7 +33,7 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Im5ld
 
 ### Delete blog
 
-DELETE http://localhost:3001/api/blogs/1
+DELETE http://localhost:3001/api/blogs/3
 
 ### Update with valid body
 
