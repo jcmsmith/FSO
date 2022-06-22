@@ -19,19 +19,35 @@ const blogFinder = async (req, res, next) => {
   next();
 };
 
-const errorHandler = async (err, req, res, next) => {
+const errorHandler = (err, req, res, next) => {
+  console.log(err);
+
   switch (err.name) {
     case "JsonWebTokenError":
-      return response.status(401).json({
+      return res.status(401).json({
         error: "invalid token",
       });
     case "TokenExpiredError":
-      return response.status(401).json({
+      return res.status(401).json({
         error: "token expired",
+      });
+    case "SequelizeValidationError":
+      return res.status(400).json({
+        error: generateSqlErrorMessage(err.errors[0]),
       });
     default:
       next(err);
   }
 };
 
-module.exports = { tokenExtractor, blogFinder, errorHandler };
+const generateSqlErrorMessage = (error) => {
+  const message = `${error.type} in ${error.path}: ${error.value}. ${error.message}`;
+  return message;
+};
+
+module.exports = {
+  tokenExtractor,
+  blogFinder,
+  errorHandler,
+  generateSqlErrorMessage,
+};

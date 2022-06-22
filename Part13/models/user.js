@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 
 const { sequelize } = require("../util/db");
+const { generateSqlErrorMessage } = require("../util/middleware");
 
 class User extends Model {}
 
@@ -15,6 +16,11 @@ User.init(
       type: DataTypes.STRING,
       unique: true,
       allowNull: false,
+      validate: {
+        isEmail: {
+          msg: "Username must be a valid email",
+        },
+      },
     },
     name: {
       type: DataTypes.STRING,
