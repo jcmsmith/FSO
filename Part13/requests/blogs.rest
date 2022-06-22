@@ -1,6 +1,18 @@
 GET http://localhost:3001/api/blogs/
 
-### Create valid blog with token
+### Create valid blog with token and author
+
+POST http://localhost:3001/api/blogs/
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RhZG1pbkBhZG1pbi5jb20iLCJpZCI6MywiaWF0IjoxNjU1ODYyMDA4fQ.WZkHoVEh7yi0G76Si2rJbRF3DsVuCd_QhqhcFkShNCM
+
+{
+    "title": "TestBlog0",
+    "url": "testblog.com",
+    "author": "Human"
+}
+
+### Create valid blog with token and no author
 
 POST http://localhost:3001/api/blogs/
 Content-Type: application/json
@@ -8,11 +20,11 @@ Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc
 
 {
     "title": "TestBlog",
-    "url": "testblog.com"
+    "url": "testblog.com",
 }
 
 
-### Create valid blog w/o token
+### Create valid blog with no token and no author
 
 POST http://localhost:3001/api/blogs/
 Content-Type: application/json
