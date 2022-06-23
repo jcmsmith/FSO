@@ -5,8 +5,9 @@
 ## Core Concepts
 
 - Relational vs document databases
-- SQL Queries
+- SQL Queries, tables, and primary/foreign keys
 - Database Migrations
+- One-to-many and many-to-many relationships
 
 ## Libraries/Tools
 
