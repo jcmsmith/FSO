@@ -13,13 +13,13 @@ ReadingList.init(
     },
     name: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
       unique: false,
     },
-    created_by_user: {
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: { model: "users", key: "id" },
+      references: { model: "user", key: "id" },
     },
   },
   {

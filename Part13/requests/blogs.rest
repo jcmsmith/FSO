@@ -4,17 +4,45 @@ GET http://localhost:3001/api/blogs/
 
 POST http://localhost:3001/api/blogs/
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RhZG1pbkBhZG1pbi5jb20iLCJpZCI6MSwiaWF0IjoxNjU1OTM5MzYwfQ.SCXbTqlhy-PzljYPinvEk0-o1dAzI-Exe_IqDm1kMrM
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RhZG1pbkBhZG1pbi5jb20iLCJpZCI6MSwiaWF0IjoxNjU2MDM2NzA3fQ.4x-NV9U78afPk0nhHcJziOMc_FHo29-JP16OedHkN8g
 
 {
     "title": "TestBlog0",
     "url": "testblog.com",
     "author": "Human",
-    "likes": 35,
+    "likes": 36,
     "year": 2012
 }
 
-### Create valid blog with valid token and no author or year
+### Create valid blog with valid token, and author + year
+
+POST http://localhost:3001/api/blogs/
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RhZG1pbkBhZG1pbi5jb20iLCJpZCI6MSwiaWF0IjoxNjU2MDIxNjQzfQ.flp_QCj3f4_PHa-Ciye7dmJFrgz-Qjrtes9hs8mqXjg
+
+{
+    "title": "TestBlog1",
+    "url": "testblog.com",
+    "author": "Human",
+    "likes": 3,
+    "year": 2014
+}
+
+### Create valid blog with valid token, and author + year
+
+POST http://localhost:3001/api/blogs/
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RhZG1pbkBhZG1pbi5jb20iLCJpZCI6MSwiaWF0IjoxNjU2MDIxNjQzfQ.flp_QCj3f4_PHa-Ciye7dmJFrgz-Qjrtes9hs8mqXjg
+
+{
+    "title": "TestBlog2",
+    "url": "testblog.com",
+    "author": "Human",
+    "likes": 3532,
+    "year": 2017
+}
+
+### Create invalid blog with valid token
 
 POST http://localhost:3001/api/blogs/
 Content-Type: application/json

@@ -2,24 +2,24 @@ const { Model, DataTypes } = require("sequelize");
 
 const { sequelize } = require("../util/db");
 
-class BlogReadingList extends Model {}
+class BlogReadinglist extends Model {}
 
-BlogReadingList.init(
+BlogReadinglist.init(
   {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    list_id: {
+    readingListId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: { model: "readingList", key: "id" },
     },
-    blog_id: {
+    blogId: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      references: { model: "blogs", key: "id" },
+      references: { model: "blog", key: "id" },
     },
     is_read: {
       type: DataTypes.BOOLEAN,
@@ -30,8 +30,8 @@ BlogReadingList.init(
     sequelize,
     underscored: true,
     timestamps: false,
-    modelName: "blogReadingList",
+    modelName: "blogReadinglist",
   }
 );
 
-module.exports = BlogReadingList;
+module.exports = BlogReadinglist;
