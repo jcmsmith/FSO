@@ -3,7 +3,7 @@ const User = require("./user");
 const ReadingList = require("./reading_list");
 const BlogReadinglist = require("./blog_readinglist");
 
-User.hasMany(Blog);
+User.hasMany(Blog, { as: "blogsCreated" });
 Blog.belongsTo(User);
 
 User.hasMany(ReadingList);
