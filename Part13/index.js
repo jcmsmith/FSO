@@ -9,7 +9,7 @@ const blogsRouter = require("./controllers/blogs");
 const usersRouter = require("./controllers/users");
 const loginRouter = require("./controllers/login");
 const authorsRouter = require("./controllers/authors");
-const readinglistRouter = require("./controllers/reading_list");
+const readinglistRouter = require("./controllers/readingList");
 
 const app = express();
 
