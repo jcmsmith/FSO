@@ -3,3 +3,7 @@ GET http://localhost:3001/api/blogs?search=test
 ###
 
 GET http://localhost:3001/api/blogs?search=human
+
+### Get specific user, and only read blogs
+
+GET http://localhost:3001/api/users/1?read=false
