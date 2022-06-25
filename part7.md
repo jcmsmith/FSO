@@ -46,4 +46,4 @@ The first version of the Bloglist app in which both parts are in one project, wi
 
 [View repo](https://github.com/jcmsmith/FSO/tree/main/Part07)
 
-[Home](https://github.com/jcmsmith/FSO)
+[Home](https://jcmsmith.github.io/FSO/)
