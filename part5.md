@@ -21,7 +21,7 @@
 
 ## Projects
 
-A frontend for the Bloglist backend created in the [previous part](https://github.com/jcmsmith/Full-Stack-open/tree/main/Part4), allowing the user to login upon which they can vote for blogs from the list and add new ones.
+A frontend for the Bloglist backend created in the [previous part](https://github.com/jcmsmith/FSO/tree/main/Part4), allowing the user to login upon which they can vote for blogs from the list and add new ones.
 
 ---
 
@@ -31,4 +31,6 @@ A frontend for the Bloglist backend created in the [previous part](https://githu
 
 ![Certificate of completion](https://imgur.com/xfaUVfs.png)
 
-[Home](https://github.com/jcmsmith/Full-Stack-open)
+[View repo](https://github.com/jcmsmith/FSO/tree/main/Part05)
+
+[Home](https://github.com/jcmsmith/FSO)
