@@ -1,4 +1,4 @@
-# Part 0 - Fundamentals of web apps
+# Part 0 - [Fundamentals of web apps](https://fullstackopen.com/en/part0/)
 
 ## Core Concepts
 
@@ -7,6 +7,14 @@
 - Ajax
 - Single-page apps
 - UML Diagrams
+
+---
+
+## Libraries/Tools Learned
+
+- Developer console in the browser
+
+---
 
 ## Projects
 
