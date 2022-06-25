@@ -39,4 +39,6 @@ Prior to this part, I wasn't extremely familiar with SQL and relational database
 
 ![Certificate of completion](https://imgur.com/ZljpJgx.png)
 
-[Home](https://github.com/jcmsmith/Full-Stack-open)
+[View repo](https://github.com/jcmsmith/FSO/tree/main/Part13)
+
+[Home](https://github.com/jcmsmith/FSO)
