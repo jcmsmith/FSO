@@ -15,6 +15,6 @@ My submissions for the Full Stack Open course:
 - [React Native](https://jcmsmith.github.io/Full-Stack-open/part10.html)
 - [CI/CD](https://jcmsmith.github.io/Full-Stack-open/part11.html)
 - [Containers](https://jcmsmith.github.io/Full-Stack-open/part12.html)
-- Unfinished
+- [Using relational databases](https://github.com/jcmsmith/Full-Stack-open/tree/main/Part13)
 
-## Total hours: 288
+## Total hours: 310
