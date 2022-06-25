@@ -1,4 +1,6 @@
-# Part 11 - CI/CD
+# Part 11 - [CI/CD](https://fullstackopen.com/en/part11/)
+
+---
 
 ## Core Concepts
 
@@ -10,13 +12,29 @@
 - Periodic tasks/Cron Jobs
 - Integration with 3rd-party applications
 
+---
+
+## Libraries/Tools Learned
+
+- Docker and Docker Hub
+- NGinx
+- Busybox
+- Redis
+- WSL & Ubuntu
+
+---
+
 ## Projects
 
-My submission for Part 11 of the FSO course: A reconfigured version of the Bloglist-app from earlier parts, this time with a CICD pipeline.
+A reconfigured version of the Bloglist-app from earlier parts, this time with a CICD pipeline.
 
 Other repo from part 11:
-https://github.com/jcmsmith/full-stack-open-pokedex
+https://github.com/jcmsmith/FSO-pokedex
+
+---
 
 ## Total hours: 23
 
-[Return to root](https://github.com/jcmsmith/Full-Stack-open)
+![Certificate of completion](https://imgur.com/C8JDbL5.png)
+
+[Return to root](https://github.com/jcmsmith/FSO)
