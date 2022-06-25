@@ -36,4 +36,4 @@ The beginning of the Bloglist app, used in [many](https://github.com/jcmsmith/FS
 
 [View repo](https://github.com/jcmsmith/FSO/tree/main/Part04)
 
-[Home](https://github.com/jcmsmith/FSO)
+[Home](https://jcmsmith.github.io/FSO/)
