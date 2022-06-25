@@ -1,0 +1,108 @@
+GET http://localhost:3001/api/blogs/
+
+### Create valid blog with valid token, and author + year
+
+POST http://localhost:3001/api/blogs/
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RhZG1pbkBhZG1pbi5jb20iLCJpZCI6MSwiaWF0IjoxNjU2MTE3NjcxfQ.BrcxxigBoDCwlb3FDh9Wbfa6U4UhpDoQse6XJFn3xRY
+
+{
+    "title": "TestBlog0",
+    "url": "testblog.com",
+    "author": "Human",
+    "likes": 36,
+    "year": 2012
+}
+
+### Create valid blog with valid token, and author + year
+
+POST http://localhost:3001/api/blogs/
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RhZG1pbkBhZG1pbi5jb20iLCJpZCI6MSwiaWF0IjoxNjU2MTIwNzc0fQ.ZDyX8Fw1LGjyUJleQ7jQu_gtpfGzfWl0Yg9MWiMXAts
+
+{
+    "title": "TestBlog1",
+    "url": "testblog.com",
+    "author": "Human",
+    "likes": 3,
+    "year": 2014
+}
+
+### Create valid blog with valid token, and author + year
+
+POST http://localhost:3001/api/blogs/
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RhZG1pbkBhZG1pbi5jb20iLCJpZCI6MSwiaWF0IjoxNjU2MDIxNjQzfQ.flp_QCj3f4_PHa-Ciye7dmJFrgz-Qjrtes9hs8mqXjg
+
+{
+    "title": "TestBlog2",
+    "url": "testblog.com",
+    "author": "Human",
+    "likes": 3532,
+    "year": 2017
+}
+
+### Create invalid blog with valid token
+
+POST http://localhost:3001/api/blogs/
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RhZG1pbkBhZG1pbi5jb20iLCJpZCI6MywiaWF0IjoxNjU1ODYyMDA4fQ.WZkHoVEh7yi0G76Si2rJbRF3DsVuCd_QhqhcFkShNCM
+
+{
+    "title": "TestBlog",
+    "url": "testblog.com",
+}
+
+
+### Create valid blog with no token and no author
+
+POST http://localhost:3001/api/blogs/
+Content-Type: application/json
+
+{
+    "title": "TestBlog",
+    "url": "testblog.com"
+}
+
+### Create invalid blog with valid token
+
+POST http://localhost:3001/api/blogs/
+Content-Type: application/json
+Authorization: bearer 
+
+{
+    "author": "Bad boy who doesnt send required content"
+}
+
+### Delete blog with valid token
+
+DELETE http://localhost:3001/api/blogs/4
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlc3RhZG1pbkBhZG1pbi5jb20iLCJpZCI6MywiaWF0IjoxNjU1ODYyMDA4fQ.WZkHoVEh7yi0G76Si2rJbRF3DsVuCd_QhqhcFkShNCM
+
+### Delete blog with invalid token
+
+DELETE http://localhost:3001/api/blogs/7
+Authorization: bearer 
+
+### Update with valid body
+
+PUT http://localhost:3001/api/blogs/8
+Content-Type: application/json
+
+{
+    "likes": 53
+}
+
+### Update with invalid body
+
+PUT http://localhost:3001/api/blogs/2
+Content-Type: application/json
+
+{
+    "likes": -1
+}
+
+### Update with missing body
+
+PUT http://localhost:3001/api/blogs/2
+Content-Type: application/json
