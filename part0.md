@@ -39,4 +39,4 @@
 
 [View repo](https://github.com/jcmsmith/FSO/tree/main/Part00)
 
-[Home](https://github.com/jcmsmith/FSO)
+[Home](https://jcmsmith.github.io/FSO/)
