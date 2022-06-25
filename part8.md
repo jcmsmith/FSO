@@ -33,4 +33,6 @@ In this project, we developed a GraphQL application for a small library, startin
 
 ![Certificate of completion](https://imgur.com/Qe79qL6.png)
 
-[Home](https://github.com/jcmsmith/Full-Stack-open)
+[View repo](https://github.com/jcmsmith/FSO/tree/main/Part08)
+
+[Home](https://github.com/jcmsmith/FSO)
