@@ -50,4 +50,4 @@ Reverse-proxying was the most difficult part of this whole part, for me. I spend
 
 [View repo](https://github.com/jcmsmith/FSO/tree/main/Part12)
 
-[Home](https://github.com/jcmsmith/FSO)
+[Home](https://jcmsmith.github.io/FSO/)
