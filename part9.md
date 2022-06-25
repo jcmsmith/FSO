@@ -49,4 +49,4 @@ I'll be honest, I was initially excited to try TypeScript but this part didn't e
 
 [View repo](https://github.com/jcmsmith/FSO/tree/main/Part09)
 
-[Home](https://github.com/jcmsmith/FSO)
+[Home](https://jcmsmith.github.io/FSO/)
