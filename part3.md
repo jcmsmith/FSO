@@ -38,4 +38,5 @@ In this part we created a backend for the [Phonebook app](https://github.com/jcm
 ![Certificate of completion](https://imgur.com/xfaUVfs.png)
 
 [View repo](https://github.com/jcmsmith/FSO/tree/main/Part03)
+
 [Return to root](https://github.com/jcmsmith/FSO)
