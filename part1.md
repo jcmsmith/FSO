@@ -41,4 +41,4 @@ The concepts from the material and previous exercises put together into a page t
 
 [View repo](https://github.com/jcmsmith/FSO/tree/main/Part01)
 
-[Home](https://github.com/jcmsmith/FSO)
+[Home](https://jcmsmith.github.io/FSO/)
