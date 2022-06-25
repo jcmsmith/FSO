@@ -1,7 +1,5 @@
 # Part 2 - [Communicating with servers](https://fullstackopen.com/en/part2/)
 
-[Repository](https://github.com/jcmsmith/FSO/tree/main/Part02)
-
 ---
 
 ## Core Concepts
@@ -43,4 +41,5 @@ A challenging (at the time!) project which served as an introduction to getting 
 
 ![Certificate of completion](https://imgur.com/xfaUVfs.png)
 
+[View repo](https://github.com/jcmsmith/FSO/tree/main/Part02)
 [Home](https://github.com/jcmsmith/FSO)
