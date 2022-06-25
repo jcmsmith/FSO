@@ -35,4 +35,4 @@ In this project, we developed a GraphQL application for a small library, startin
 
 [View repo](https://github.com/jcmsmith/FSO/tree/main/Part08)
 
-[Home](https://github.com/jcmsmith/FSO)
+[Home](https://jcmsmith.github.io/FSO/)
