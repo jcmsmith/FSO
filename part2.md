@@ -43,4 +43,4 @@ A challenging (at the time!) project which served as an introduction to getting 
 
 [View repo](https://github.com/jcmsmith/FSO/tree/main/Part02)
 
-[Home](https://github.com/jcmsmith/FSO)
+[Home](https://jcmsmith.github.io/FSO/)
