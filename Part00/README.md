@@ -22,4 +22,6 @@
 
 ## Total hours: 3
 
+![Certificate of completion](https://imgur.com/xfaUVfs.png)
+
 [Return to root](https://github.com/jcmsmith/Full-Stack-open)
