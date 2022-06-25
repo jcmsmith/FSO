@@ -31,6 +31,8 @@ A reconfigured version of the Bloglist-app from earlier parts, this time with a 
 Other repo from part 11:
 https://github.com/jcmsmith/full-stack-open-pokedex
 
+---
+
 ## Total hours: 23
 
 ![Certificate of completion](https://imgur.com/C8JDbL5.png)
