@@ -1,5 +1,7 @@
 # Part 2 - [Communicating with servers](https://fullstackopen.com/en/part2/)
 
+[Repository](https://github.com/jcmsmith/FSO/tree/main/Part02)
+
 ---
 
 ## Core Concepts
@@ -23,7 +25,7 @@
 
 ### CourseInfo
 
-An expansion of the [CourseInfo project](https://github.com/jcmsmith/Full-Stack-open/tree/main/part1/courseinfo), in which we gained valuable practice with array methods and rendering of collections.
+An expansion of the [CourseInfo project](https://github.com/jcmsmith/FSO/tree/main/part1/courseinfo), in which we gained valuable practice with array methods and rendering of collections.
 
 ### Phonebook
 
@@ -41,4 +43,4 @@ A challenging (at the time!) project which served as an introduction to getting 
 
 ![Certificate of completion](https://imgur.com/xfaUVfs.png)
 
-[Home](https://github.com/jcmsmith/Full-Stack-open)
+[Home](https://github.com/jcmsmith/FSO)
