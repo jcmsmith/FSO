@@ -33,4 +33,4 @@ A frontend for the Bloglist backend created in the [previous part](https://githu
 
 [View repo](https://github.com/jcmsmith/FSO/tree/main/Part05)
 
-[Home](https://github.com/jcmsmith/FSO)
+[Home](https://jcmsmith.github.io/FSO/)
