@@ -27,7 +27,7 @@ A couple of simple calculators designed for a first introduction to TS, one for 
 
 ### Courseinfo
 
-Another version of the [CourseInfo project](https://github.com/jcmsmith/Full-Stack-open/tree/main/part1/courseinfo), but now in TypeScript!
+Another version of the [CourseInfo project](https://github.com/jcmsmith/FSO/tree/main/part1/courseinfo), but now in TypeScript!
 
 ### Patientor
 
@@ -47,4 +47,6 @@ I'll be honest, I was initially excited to try TypeScript but this part didn't e
 
 ![Certificate of completion](https://imgur.com/o0DdTWg.png)
 
-[Home](https://github.com/jcmsmith/Full-Stack-open)
+[View repo](https://github.com/jcmsmith/FSO/tree/main/Part09)
+
+[Home](https://github.com/jcmsmith/FSO)
