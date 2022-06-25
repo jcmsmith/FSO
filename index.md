@@ -1,6 +1,6 @@
 # JCMSmith - The University of Helsinki - Full Stack Open
 
-I learned *a lot* from this course, in about two months I went from 0 knowledge of JavaScript to feeling extremely comfortable with it and the whole Node ecosystem! Now I'm ready and excited to tackle a personal project or two!
+I learned *a lot* from [this course](https://fullstackopen.com/en), in about two months I went from 0 knowledge of JavaScript to feeling extremely comfortable with it and the whole Node ecosystem! Now I'm ready and excited to tackle a personal project or two!
 
 - [Fundamentals of web apps](https://jcmsmith.github.io/FSO/part0.html)
 - [Introduction to React](https://jcmsmith.github.io/FSO/part1.html)
