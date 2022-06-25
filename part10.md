@@ -37,4 +37,6 @@ This is an Android app that allows the user to login and view, rate, and comment
 
 ![Certificate of completion](https://imgur.com/GDePGtN.png)
 
-[Home](https://github.com/jcmsmith/Full-Stack-open)
+[View repo](https://github.com/jcmsmith/FSO/tree/main/Part10)
+
+[Home](https://github.com/jcmsmith/FSO)
