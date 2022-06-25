@@ -24,11 +24,11 @@
 
 ### Unicafe Redux
 
-A simplified version of the [Unicafe project](https://github.com/jcmsmith/Full-Stack-open/tree/main/part1/unicafe) from part 1, using Redux for state management.
+A simplified version of the [Unicafe project](https://github.com/jcmsmith/FSO/tree/main/part1/unicafe) from part 1, using Redux for state management.
 
 ### Anecdotes-redux
 
-A modified version of the [Anecdotes app](https://github.com/jcmsmith/Full-Stack-open/tree/main/part1/anecdotes) from part 1, also using Redux for state managment but with a more complex configuration.
+A modified version of the [Anecdotes app](https://github.com/jcmsmith/FSO/tree/main/part1/anecdotes) from part 1, also using Redux for state managment but with a more complex configuration.
 
 ---
 
@@ -38,4 +38,6 @@ A modified version of the [Anecdotes app](https://github.com/jcmsmith/Full-Stack
 
 ![Certificate of completion](https://imgur.com/xfaUVfs.png)
 
-[Home](https://github.com/jcmsmith/Full-Stack-open)
+[View repo](https://github.com/jcmsmith/FSO/tree/main/Part06)
+
+[Home](https://jcmsmith.github.io/FSO/)
