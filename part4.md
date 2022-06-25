@@ -34,6 +34,6 @@ The beginning of the Bloglist app, used in [many](https://github.com/jcmsmith/FS
 
 ![Certificate of completion](https://imgur.com/xfaUVfs.png)
 
-[View repo](https://github.com/jcmsmith/FSO/tree/main/Part02)
+[View repo](https://github.com/jcmsmith/FSO/tree/main/Part04)
 
 [Home](https://github.com/jcmsmith/FSO)
