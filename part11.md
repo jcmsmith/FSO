@@ -37,4 +37,6 @@ https://github.com/jcmsmith/full-stack-open-pokedex
 
 ![Certificate of completion](https://imgur.com/C8JDbL5.png)
 
-[Home](https://github.com/jcmsmith/Full-Stack-open)
+[View repo](https://github.com/jcmsmith/FSO/tree/main/Part11)
+
+[Home](https://github.com/jcmsmith/FSO)
