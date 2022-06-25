@@ -22,11 +22,11 @@
 
 ### Routed Anecdotes
 
-Another version of the original [Anecdote app](https://github.com/jcmsmith/Full-Stack-open/tree/main/part1/anecdotes), this time using in-app navigation via React Router. Started from [this code](https://github.com/fullstack-hy2020/routed-anecdotes).
+Another version of the original [Anecdote app](https://github.com/jcmsmith/FSO/tree/main/part1/anecdotes), this time using in-app navigation via React Router. Started from [this code](https://github.com/fullstack-hy2020/routed-anecdotes).
 
 ### Country Hook
 
-A small refactoring of the [Countrydata app](https://github.com/jcmsmith/Full-Stack-open/tree/main/Part2/countrydata), the same core concept but now using a custom useCountry hook to fetch data and update the React state.
+A small refactoring of the [Countrydata app](https://github.com/jcmsmith/FSO/tree/main/Part2/countrydata), the same core concept but now using a custom useCountry hook to fetch data and update the React state.
 
 ### Ultimate Hooks
 
@@ -44,4 +44,6 @@ The first version of the Bloglist app in which both parts are in one project, wi
 
 ![Certificate of completion](https://imgur.com/xfaUVfs.png)
 
-[Home](https://github.com/jcmsmith/Full-Stack-open)
+[View repo](https://github.com/jcmsmith/FSO/tree/main/Part07)
+
+[Home](https://github.com/jcmsmith/FSO)
