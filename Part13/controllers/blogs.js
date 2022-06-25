@@ -1,7 +1,7 @@
 const { Op } = require("sequelize");
 const router = require("express").Router();
 
-const { userExtractor, blogFinder } = require("../util/middleware");
+const { blogFinder, sessionAuthenticator } = require("../util/middleware");
 const { Blog, User } = require("../models/");
 
 router.get("/", async (req, res) => {
@@ -38,10 +38,8 @@ router.get("/", async (req, res) => {
   res.json(blogs);
 });
 
-router.post("/", userExtractor, async (req, res) => {
-  console.log("body", req.body);
-
-  if (req.user === null) {
+router.post("/", sessionAuthenticator, async (req, res) => {
+  if (req.user === null || req.session === null) {
     return res.status(401).end();
   }
 
@@ -53,8 +51,8 @@ router.post("/", userExtractor, async (req, res) => {
   res.json(blog);
 });
 
-router.delete("/:id", userExtractor, blogFinder, async (req, res) => {
-  if (req.user === null) {
+router.delete("/:id", sessionAuthenticator, blogFinder, async (req, res) => {
+  if (req.user === null || req.session === null) {
     res.status(401).end();
     return;
   }

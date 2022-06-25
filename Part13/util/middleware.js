@@ -1,9 +1,10 @@
 const jwt = require("jsonwebtoken");
 
 const { SECRET } = require("./config");
-const { Blog, User } = require("../models/");
+const { verifyTimestamp } = require("../util/timestamp");
+const { Blog, User, ActiveSession } = require("../models/");
 
-const extractToken = (req) => {
+const decodeToken = (req) => {
   const authorization = req.get("authorization");
 
   if (authorization && authorization.toLowerCase().startsWith("bearer ")) {
@@ -13,23 +14,62 @@ const extractToken = (req) => {
   }
 };
 
+const compareTokens = (first, second) => {
+  let token1 = first;
+  let token2 = second;
+
+  if (token1.toLowerCase().startsWith("bearer ")) {
+    token1 = token1.substring(7);
+  }
+
+  if (token2.toLowerCase().startsWith("bearer ")) {
+    token2 = token2.substring(7);
+  }
+
+  console.log("token1", token1);
+  console.log("token2", token2);
+  return token1 === token2;
+};
+
 const tokenExtractor = (req, res, next) => {
-  req.decodedToken = extractToken(req);
+  req.decodedToken = decodeToken(req);
 
   next();
 };
 
 const userExtractor = async (req, res, next) => {
-  const token = extractToken(req);
+  const token = decodeToken(req);
   const userId = token?.id;
 
   req.user = null;
+  req.session = null;
 
   if (userId) {
-    try {
-      req.user = await User.findByPk(userId);
-    } catch (err) {
-      console.error("Error: userExtractor did not find matching user");
+    req.user = await User.findByPk(userId);
+  }
+
+  next();
+};
+
+// Must be used after userExtractor
+const sessionAuthenticator = async (req, res, next) => {
+  const session = await ActiveSession.findOne({
+    where: {
+      userId: req.user.id,
+    },
+  });
+
+  if (session) {
+    const givenToken = req.get("authorization");
+
+    if (
+      verifyTimestamp(session.expiration) &&
+      !req.user.isDisabled &&
+      compareTokens(session.token, givenToken)
+    ) {
+      req.session = session;
+    } else {
+      session.destroy();
     }
   }
 
@@ -72,6 +112,7 @@ const generateSqlErrorMessage = (error) => {
 module.exports = {
   tokenExtractor,
   userExtractor,
+  sessionAuthenticator,
   blogFinder,
   errorHandler,
   generateSqlErrorMessage,

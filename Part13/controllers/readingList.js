@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 const { UserReading } = require("../models");
-const { userExtractor } = require("../util/middleware");
+const { sessionAuthenticator } = require("../util/middleware");
 
 router.post("/", async (req, res) => {
   await UserReading.create({
@@ -12,8 +12,8 @@ router.post("/", async (req, res) => {
   res.status(201).end();
 });
 
-router.put("/:id", userExtractor, async (req, res) => {
-  if (req.user === null) {
+router.put("/:id", sessionAuthenticator, async (req, res) => {
+  if (req.user === null || req.session === null) {
     return res.status(401).end();
   }
 

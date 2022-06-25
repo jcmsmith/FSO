@@ -1,7 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 
 const { sequelize } = require("../util/db");
-const { generateSqlErrorMessage } = require("../util/middleware");
 
 class User extends Model {}
 
@@ -25,6 +24,11 @@ User.init(
     name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    isDisabled: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: false,
     },
   },
   {
