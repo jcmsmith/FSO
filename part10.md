@@ -39,4 +39,4 @@ This is an Android app that allows the user to login and view, rate, and comment
 
 [View repo](https://github.com/jcmsmith/FSO/tree/main/Part10)
 
-[Home](https://github.com/jcmsmith/FSO)
+[Home](https://jcmsmith.github.io/FSO/)
