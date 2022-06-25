@@ -24,7 +24,7 @@
 
 ## Projects
 
-The beginning of the Bloglist app, used in [many](https://github.com/jcmsmith/Full-Stack-open/tree/main/Part5) [other](https://github.com/jcmsmith/Full-Stack-open/tree/main/Part11) [parts](https://github.com/jcmsmith/Full-Stack-open/tree/main/Part12/bloglist-docker)! This part is the initial backend implementation of the Bloglist, and our first look at handling users and tokens.
+The beginning of the Bloglist app, used in [many](https://github.com/jcmsmith/FSO/tree/main/Part5) [other](https://github.com/jcmsmith/FSO/tree/main/Part11) [parts](https://github.com/jcmsmith/FSO/tree/main/Part12/bloglist-docker)! This part is the initial backend implementation of the Bloglist, and our first look at handling users and tokens.
 
 ---
 
@@ -34,4 +34,6 @@ The beginning of the Bloglist app, used in [many](https://github.com/jcmsmith/Fu
 
 ![Certificate of completion](https://imgur.com/xfaUVfs.png)
 
-[Home](https://github.com/jcmsmith/Full-Stack-open)
+[View repo](https://github.com/jcmsmith/FSO/tree/main/Part02)
+
+[Home](https://github.com/jcmsmith/FSO)
