@@ -1,4 +1,6 @@
-# Part 2 - Communicating with servers
+# Part 2 - [Communicating with servers](https://fullstackopen.com/en/part2/)
+
+---
 
 ## Core Concepts
 
@@ -6,6 +8,16 @@
 - HTML forms
 - Axios, promises, and interacting with servers to modify data
 - REST APIs
+
+---
+
+## Libraries/Tools Learned
+
+- Axios
+- JSON Server
+- CSS Styling
+
+---
 
 ## Projects
 
@@ -21,6 +33,12 @@ A little app that can be used to input names and numbers and temporarily store t
 
 A challenging (at the time!) project which served as an introduction to getting data from 3rd-party APIs. The user can enter text into a filter box to search for countries. When the filter matches only a few countries, it will display those countries in a list, alongside a button to give more detail about the chosen country. When the show details button is selected or the filter matches only one country, it will display some data about that country, along with current weather and an icon representing such.
 
+---
+
 ## Total hours: 22
+
+---
+
+![Certificate of completion](https://imgur.com/xfaUVfs.png)
 
 [Home](https://github.com/jcmsmith/Full-Stack-open)
