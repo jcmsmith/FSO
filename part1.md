@@ -39,4 +39,6 @@ The concepts from the material and previous exercises put together into a page t
 
 ![Certificate of completion](https://imgur.com/xfaUVfs.png)
 
+[View repo](https://github.com/jcmsmith/FSO/tree/main/Part02)
+
 [Home](https://github.com/jcmsmith/FSO)
