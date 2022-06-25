@@ -48,4 +48,6 @@ Reverse-proxying was the most difficult part of this whole part, for me. I spend
 
 ![Certificate of completion](https://imgur.com/4fUkjTI.png)
 
-[Home](https://github.com/jcmsmith/Full-Stack-open)
+[View repo](https://github.com/jcmsmith/FSO/tree/main/Part12)
+
+[Home](https://github.com/jcmsmith/FSO)
