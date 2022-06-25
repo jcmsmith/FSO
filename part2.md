@@ -42,4 +42,5 @@ A challenging (at the time!) project which served as an introduction to getting 
 ![Certificate of completion](https://imgur.com/xfaUVfs.png)
 
 [View repo](https://github.com/jcmsmith/FSO/tree/main/Part02)
+
 [Home](https://github.com/jcmsmith/FSO)
