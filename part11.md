@@ -39,4 +39,4 @@ https://github.com/jcmsmith/full-stack-open-pokedex
 
 [View repo](https://github.com/jcmsmith/FSO/tree/main/Part11)
 
-[Home](https://github.com/jcmsmith/FSO)
+[Home](https://jcmsmith.github.io/FSO/)
