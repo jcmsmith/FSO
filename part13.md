@@ -41,4 +41,4 @@ Prior to this part, I wasn't extremely familiar with SQL and relational database
 
 [View repo](https://github.com/jcmsmith/FSO/tree/main/Part13)
 
-[Home](https://github.com/jcmsmith/FSO)
+[Home](https://jcmsmith.github.io/FSO/)
