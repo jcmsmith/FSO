@@ -1,6 +1,6 @@
 # The University of Helsinki - Full Stack Open
 
-My submissions for the Full Stack Open course:
+My submissions for the Full Stack Open course. I learned *a lot*, and in about two months I went from 0 knowledge of JavaScript to feeling extremely comfortable with it and the whole Node ecosystem! Now I'm ready and excited to tackle a personal project or two!
 
 - [Fundamentals of web apps](https://jcmsmith.github.io/Full-Stack-open/part0.html)
 - [Introduction to React](https://jcmsmith.github.io/Full-Stack-open/part1.html)
