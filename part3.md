@@ -39,4 +39,4 @@ In this part we created a backend for the [Phonebook app](https://github.com/jcm
 
 [View repo](https://github.com/jcmsmith/FSO/tree/main/Part03)
 
-[Return to root](https://jcmsmith.github.io/FSO/)
+[Home](https://jcmsmith.github.io/FSO/)
