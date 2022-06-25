@@ -1,6 +1,6 @@
 # The University of Helsinki - Full Stack Open
 
-This repository contains all of my submissions for the Full Stack Open course.
+This repository contains all of my submissions for the Full Stack Open course
 
 0. [Fundamentals of web apps](https://github.com/jcmsmith/Full-Stack-open/tree/main/Part00)
 1. [Introduction to React](https://github.com/jcmsmith/Full-Stack-open/tree/main/Part01)
@@ -15,6 +15,6 @@ This repository contains all of my submissions for the Full Stack Open course.
 10. [React Native](https://github.com/jcmsmith/Full-Stack-open/tree/main/Part10)
 11. [CI/CD](https://github.com/jcmsmith/Full-Stack-open/tree/main/Part11)
 12. [Containers](https://github.com/jcmsmith/Full-Stack-open/tree/main/Part12)
-13. Unfinished
+13. [Using relational databases](https://github.com/jcmsmith/Full-Stack-open/tree/main/Part13)
 
-## Total hours: 288
+## Total hours: 309.5

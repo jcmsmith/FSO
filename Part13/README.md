@@ -31,7 +31,7 @@ Exercise 13.22 - It finally clicked, and I realized I was overcomplicating the r
 
 ---
 
-## Total hours:
+## Total hours: 21.5
 
 ---
 
