@@ -37,7 +37,7 @@ The frontend was [provided for us](https://github.com/fullstack-hy2020/patientor
 
 ## Notes
 
-I'll be honest, I was initially excited to try TypeScript but this part didn't end up leaving me with the best first impression of it! I'll use it if I have to, of course, but I think I'm sticking with JS for my own needs, at least for now.
+I'll be honest, I was initially excited to try TypeScript but this part didn't end up leaving me with the best first impression of it! I'll use it if I have to, of course, but for now I think I'm sticking with JS for my own needs.
 
 ---
 
