@@ -39,4 +39,4 @@ The concepts from the material and previous exercises put together into a page t
 
 ![Certificate of completion](https://imgur.com/xfaUVfs.png)
 
-[Home](https://github.com/jcmsmith/Full-Stack-open)
+[Home](https://github.com/jcmsmith/FSO)
